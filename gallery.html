@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Gallery - Luxe Nail Art Studio</title>
+    <meta name="description" content="Explore our stunning nail art gallery featuring custom designs, artistic creations, and inspirational nail styles. Get inspired for your next appointment.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <!-- LEFT SECTION - Logo + Name -->
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#d4a574;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#b8935f;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="20" cy="20" r="18" fill="url(#logoGradient)"/>
+                    <path d="M20 8 L24 16 L32 16 L26 22 L28 30 L20 26 L12 30 L14 22 L8 16 L16 16 Z" fill="white"/>
+                </svg>
+                <span>Luxe Nail Studio</span>
+            </a>
+            
+            <!-- CENTER SECTION - Navigation Menu Only -->
+            <nav class="nav-center">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                    <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li><a href="appointments.html" class="nav-link">Appointments</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <!-- Mobile Login/Register Actions (hidden on desktop) -->
+                <div class="mobile-nav-actions">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+            </nav>
+            
+            <!-- RIGHT SECTION - Login | Register Only -->
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle - RIGHT (hidden on desktop) -->
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section section-hero">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Design Gallery</h1>
+                    <p class="subtitle">Inspiration for Your Perfect Nails</p>
+                    <p>Explore our curated collection of nail art designs, from timeless classics to cutting-edge trends. Each piece showcases our artistic expertise and attention to detail.</p>
+                    <div class="hero-buttons">
+                        <a href="appointments.html" class="btn btn-primary">Book Your Design</a>
+                        <a href="#gallery-filters" class="btn btn-outline">Browse Styles</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/hero/gallery-hero.jpg" alt="Nail Art Gallery">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Filters -->
+    <section class="section section-services" id="gallery-filters">
+        <div class="container">
+            <div class="gallery-header">
+                <h2>Browse by Style</h2>
+                <p>Filter our gallery to find your perfect design inspiration</p>
+            </div>
+            
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Designs</button>
+                <button class="filter-btn" data-filter="classic">Classic</button>
+                <button class="filter-btn" data-filter="artistic">Artistic</button>
+                <button class="filter-btn" data-filter="trendy">Trendy</button>
+                <button class="filter-btn" data-filter="bridal">Bridal</button>
+                <button class="filter-btn" data-filter="seasonal">Seasonal</button>
+                <button class="filter-btn" data-filter="minimal">Minimal</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Gallery -->
+    <section class="section section-gallery">
+        <div class="container">
+            <div class="gallery-grid">
+                <!-- Classic Designs -->
+                <div class="gallery-item" data-category="classic">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/classic-01.jpg" alt="Classic French Manicure">
+                    <div class="gallery-overlay">
+                        <h4>Classic French</h4>
+                        <p>Timeless elegance with a modern twist</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="classic">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/classic-02.jpg" alt="Nude Elegance">
+                    <div class="gallery-overlay">
+                        <h4>Nude Elegance</h4>
+                        <p>Sophisticated neutral tones</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="classic">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/classic-03.jpg" alt="Red Classic">
+                    <div class="gallery-overlay">
+                        <h4>Red Classic</h4>
+                        <p>Bold and beautiful red polish</p>
+                    </div>
+                </div>
+                
+                <!-- Artistic Designs -->
+                <div class="gallery-item" data-category="artistic">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/artistic-01.jpg" alt="Floral Masterpiece">
+                    <div class="gallery-overlay">
+                        <h4>Floral Masterpiece</h4>
+                        <p>Intricate hand-painted flowers</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="artistic">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/artistic-02.jpg" alt="Abstract Art">
+                    <div class="gallery-overlay">
+                        <h4>Abstract Art</h4>
+                        <p>Modern abstract designs</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="artistic">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/artistic-03.jpg" alt="Galaxy Theme">
+                    <div class="gallery-overlay">
+                        <h4>Galaxy Theme</h4>
+                        <p>Cosmic-inspired nail art</p>
+                    </div>
+                </div>
+                
+                <!-- Trendy Designs -->
+                <div class="gallery-item" data-category="trendy">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/trendy-01.jpg" alt="Neon Dreams">
+                    <div class="gallery-overlay">
+                        <h4>Neon Dreams</h4>
+                        <p>Vibrant neon color combinations</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="trendy">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/trendy-02.jpg" alt="Chrome Finish">
+                    <div class="gallery-overlay">
+                        <h4>Chrome Finish</h4>
+                        <p>Metallic mirror effect</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="trendy">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/trendy-03.jpg" alt="Animal Print">
+                    <div class="gallery-overlay">
+                        <h4>Animal Print</h4>
+                        <p>Fashionable animal patterns</p>
+                    </div>
+                </div>
+                
+                <!-- Bridal Designs -->
+                <div class="gallery-item" data-category="bridal">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/bridal-01.jpg" alt="Bridal Elegance">
+                    <div class="gallery-overlay">
+                        <h4>Bridal Elegance</h4>
+                        <p>Delicate wedding day design</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="bridal">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/bridal-02.jpg" alt="Pearl Accents">
+                    <div class="gallery-overlay">
+                        <h4>Pearl Accents</h4>
+                        <p>Romantic pearl embellishments</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="bridal">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/bridal-03.jpg" alt="Lace Details">
+                    <div class="gallery-overlay">
+                        <h4>Lace Details</h4>
+                        <p>Intricate lace-inspired art</p>
+                    </div>
+                </div>
+                
+                <!-- Seasonal Designs -->
+                <div class="gallery-item" data-category="seasonal">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/seasonal-01.jpg" alt="Spring Blossoms">
+                    <div class="gallery-overlay">
+                        <h4>Spring Blossoms</h4>
+                        <p>Fresh spring flower designs</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="seasonal">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/seasonal-02.jpg" alt="Winter Wonderland">
+                    <div class="gallery-overlay">
+                        <h4>Winter Wonderland</h4>
+                        <p>Festive winter nail art</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="seasonal">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/seasonal-03.jpg" alt="Summer Vibes">
+                    <div class="gallery-overlay">
+                        <h4>Summer Vibes</h4>
+                        <p>Bright tropical designs</p>
+                    </div>
+                </div>
+                
+                <!-- Minimal Designs -->
+                <div class="gallery-item" data-category="minimal">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/minimal-01.jpg" alt="Simple Lines">
+                    <div class="gallery-overlay">
+                        <h4>Simple Lines</h4>
+                        <p>Clean geometric patterns</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="minimal">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/minimal-02.jpg" alt="Dot Details">
+                    <div class="gallery-overlay">
+                        <h4>Dot Details</h4>
+                        <p>Subtle dot pattern design</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="minimal">
+                    <!-- Replace this image path with your own image if not visible -->
+                    <img src="assets/images/gallery/minimal-03.jpg" alt="Negative Space">
+                    <div class="gallery-overlay">
+                        <h4>Negative Space</h4>
+                        <p>Modern cut-out designs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="section section-about">
+        <div class="container">
+            <div class="text-center">
+                <h2>Featured Collections</h2>
+                <p>Curated design sets for special occasions</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="service-card">
+                    <div class="service-icon">👑</div>
+                    <h3>Royal Collection</h3>
+                    <p>Luxurious designs featuring gold accents, jewels, and regal patterns. Perfect for special events and making a statement.</p>
+                    <div style="margin-top: 1rem;">
+                        <span style="color: var(--primary-color); font-weight: 600;">12 Designs Available</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🌸</div>
+                    <h3>Nature Collection</h3>
+                    <p>Botanical-inspired designs with flowers, leaves, and natural elements. Bring the beauty of nature to your nails.</p>
+                    <div style="margin-top: 1rem;">
+                        <span style="color: var(--primary-color); font-weight: 600;">18 Designs Available</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎭</div>
+                    <h3>Artistic Collection</h3>
+                    <p>Abstract and contemporary designs inspired by famous artists and modern art movements. Wearable art for your nails.</p>
+                    <div style="margin-top: 1rem;">
+                        <span style="color: var(--primary-color); font-weight: 600;">15 Designs Available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Design Request -->
+    <section class="section section-pricing">
+        <div class="container">
+            <div style="text-align: center; background: var(--gradient-primary); padding: 4rem 2rem; border-radius: var(--border-radius); color: white;">
+                <h2 style="color: white; margin-bottom: 1rem;">Have a Design in Mind?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: rgba(255,255,255,0.9);">Our artists can bring your vision to life with custom nail art designs tailored just for you</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="appointments.html" class="btn" style="background: white; color: var(--primary-color);">Request Custom Design</a>
+                    <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">Consult with Artist</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Luxe Nail Studio</h3>
+                    <p>Where art meets beauty in perfect harmony. Experience premium nail care and artistic designs in our luxurious studio environment.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">📷</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">in</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="gallery.html">Design Gallery</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="appointments.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Classic Manicure</a></li>
+                        <li><a href="services.html">Nail Art Design</a></li>
+                        <li><a href="services.html">Gel Extensions</a></li>
+                        <li><a href="services.html">Pedicure Services</a></li>
+                        <li><a href="services.html">Nail Treatments</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>123 Beauty Boulevard</li>
+                        <li>Luxury District, LD 12345</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Email: hello@luxenailstudio.com</li>
+                        <li>Hours: Mon-Sat 9AM-7PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Luxe Nail Studio. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

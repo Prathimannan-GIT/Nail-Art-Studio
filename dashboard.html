@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Luxe Nail Art Studio</title>
+    <meta name="description" content="Choose between Client and Admin dashboards for Luxe Nail Studio management">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <!-- LEFT SECTION - Logo + Name -->
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#d4a574;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#b8935f;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="20" cy="20" r="18" fill="url(#logoGradient)"/>
+                    <path d="M20 8 L24 16 L32 16 L26 22 L28 30 L20 26 L12 30 L14 22 L8 16 L16 16 Z" fill="white"/>
+                </svg>
+                <span>Luxe Nail Studio</span>
+            </a>
+            
+            <!-- CENTER SECTION - Navigation Menu Only -->
+            <nav class="nav-center">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li><a href="appointments.html" class="nav-link">Appointments</a></li>
+                    <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <!-- Mobile Login/Register Actions (hidden on desktop) -->
+                <div class="mobile-nav-actions">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+            </nav>
+            
+            <!-- RIGHT SECTION - Login | Register Only -->
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle - RIGHT (hidden on desktop) -->
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Dashboard Selection Section -->
+    <section class="section section-hero">
+        <div class="container">
+            <div class="hero" style="text-align: center;">
+                <div class="hero-content" style="max-width: 800px; margin: 0 auto;">
+                    <h1>Choose Your Dashboard</h1>
+                    <p class="subtitle">Access Your Personalized Portal</p>
+                    <p>Select the appropriate dashboard to manage your appointments, view your profile, or access studio administration tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Options -->
+    <section class="section section-services">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-top: 3rem;">
+                <!-- Client Dashboard Option -->
+                <div class="service-card" style="text-align: center; padding: 3rem;">
+                    <div class="service-icon" style="width: 100px; height: 100px; font-size: 3rem; margin: 0 auto 2rem;">👤</div>
+                    <h2 style="margin-bottom: 1rem;">Client Dashboard</h2>
+                    <p style="margin-bottom: 2rem; color: var(--text-light);">Manage your appointments, view booking history, track rewards, and update your profile.</p>
+                    
+                    <ul style="text-align: left; margin-bottom: 2rem; color: var(--text-light);">
+                        <li style="margin-bottom: 0.75rem;">✓ View upcoming appointments</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Book new services</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Track reward points</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Update personal information</li>
+                        <li style="margin-bottom: 0.75rem;">✓ View favorite designs</li>
+                    </ul>
+                    
+                    <a href="client-dashboard.html" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">Enter Client Dashboard</a>
+                </div>
+                
+                <!-- Admin Dashboard Option -->
+                <div class="service-card" style="text-align: center; padding: 3rem;">
+                    <div class="service-icon" style="width: 100px; height: 100px; font-size: 3rem; margin: 0 auto 2rem;">⚙️</div>
+                    <h2 style="margin-bottom: 1rem;">Admin Dashboard</h2>
+                    <p style="margin-bottom: 2rem; color: var(--text-light);">Complete studio management including appointments, clients, staff, analytics, and more.</p>
+                    
+                    <ul style="text-align: left; margin-bottom: 2rem; color: var(--text-light);">
+                        <li style="margin-bottom: 0.75rem;">✓ Manage all appointments</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Client database management</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Service and pricing control</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Staff scheduling</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Analytics and reports</li>
+                    </ul>
+                    
+                    <a href="admin-dashboard.html" class="btn btn-outline" style="padding: 1rem 2rem; font-size: 1.1rem; border-color: var(--secondary-color); color: var(--secondary-color);" onmouseover="this.style.background='var(--secondary-color)'; this.style.color='white';" onmouseout="this.style.background='transparent'; this.style.color='var(--secondary-color)';">Enter Admin Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Required Section -->
+    <section class="section section-gallery">
+        <div class="container">
+            <div style="background: var(--gradient-soft); padding: 3rem; border-radius: var(--border-radius); text-align: center;">
+                <h2 style="margin-bottom: 1rem;">Login Required</h2>
+                <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem;">You need to be logged in to access the dashboards. If you don't have an account, you can register for free.</p>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="login.html" class="btn btn-primary">Login Now</a>
+                    <a href="register.html" class="btn btn-outline">Create Account</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Overview -->
+    <section class="section section-about">
+        <div class="container">
+            <div class="text-center">
+                <h2>Dashboard Features</h2>
+                <p>Powerful tools for clients and administrators</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem;">📅</div>
+                    <h3>Smart Scheduling</h3>
+                    <p style="color: var(--text-light);">Easy appointment booking and management system</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem;">📊</div>
+                    <h3>Real-time Analytics</h3>
+                    <p style="color: var(--text-light);">Track performance and business insights</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem;">💬</div>
+                    <h3>Direct Messaging</h3>
+                    <p style="color: var(--text-light);">Communicate directly with clients and staff</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem;">🎁</div>
+                    <h3>Rewards System</h3>
+                    <p style="color: var(--text-light);">Loyalty program and points management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Luxe Nail Studio</h3>
+                    <p>Where art meets beauty in perfect harmony. Experience premium nail care and artistic designs in our luxurious studio environment.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">📷</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">in</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="gallery.html">Design Gallery</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="appointments.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Classic Manicure</a></li>
+                        <li><a href="services.html">Nail Art Design</a></li>
+                        <li><a href="services.html">Gel Extensions</a></li>
+                        <li><a href="services.html">Pedicure Services</a></li>
+                        <li><a href="services.html">Nail Treatments</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>123 Beauty Boulevard</li>
+                        <li>Luxury District, LD 12345</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Email: hello@luxenailstudio.com</li>
+                        <li>Hours: Mon-Sat 9AM-7PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Luxe Nail Studio. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

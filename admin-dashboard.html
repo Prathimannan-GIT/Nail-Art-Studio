@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Luxe Nail Art Studio</title>
+    <meta name="description" content="Admin dashboard for managing appointments, clients, services, and studio operations at Luxe Nail Studio.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
+</head>
+<body class="dashboard">
+    <!-- Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">✦</div>
+                    <span>Luxe Nail Studio Admin</span>
+                </a>
+                
+                <div style="display: flex; align-items: center; gap: 2rem;">
+                    <div style="text-align: right;">
+                        <div style="font-weight: 600; color: var(--text-dark);">Admin User</div>
+                        <div style="font-size: 0.9rem; color: var(--text-light);">Studio Manager</div>
+                    </div>
+                    <div style="width: 40px; height: 40px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">AD</div>
+                    <button class="btn btn-outline" onclick="window.location.href='index.html'">Logout</button>
+                    <button class="dashboard-menu-toggle" onclick="toggleAdminDashboardMenu()" style="display: none; background: var(--primary-color); color: white; border: none; padding: 0.5rem; border-radius: 4px; cursor: pointer;">
+                        ☰
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#overview" class="active" data-page="overview">📊 Admin Overview</a></li>
+                <li><a href="#appointments" data-page="appointments">📅 Appointments</a></li>
+                <li><a href="#clients" data-page="clients">👥 Clients</a></li>
+                <li><a href="#services" data-page="services">💅 Services</a></li>
+                <li><a href="#gallery" data-page="gallery">🎨 Gallery</a></li>
+                <li><a href="#staff" data-page="staff">👩‍🎨 Staff</a></li>
+                <li><a href="#analytics" data-page="analytics">📈 Analytics</a></li>
+                <li><a href="#messages" data-page="messages">💬 Messages</a></li>
+                <li><a href="#settings" data-page="settings">⚙️ Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active" style="display: block;">
+                <h2> Overview</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-value">24</div>
+                        <div class="stat-label">Today's Appointments</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-value">1,247</div>
+                        <div class="stat-label">Total Clients</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-value">$4,250</div>
+                        <div class="stat-label">Today's Revenue</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-value">4.9</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-top: 2rem;">
+                    <div style="background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft);">
+                        <h3 style="margin-bottom: 1.5rem;">Today's Schedule</h3>
+                        
+                        <div style="max-height: 400px; overflow-y: auto;">
+                            <div style="border-left: 4px solid var(--primary-color); padding: 1rem; margin-bottom: 1rem; background: var(--gradient-soft);">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <h4 style="margin-bottom: 0.25rem;">Sarah Mitchell - Gel Manicure</h4>
+                                        <p style="color: var(--text-light); font-size: 0.9rem;">Client: Jennifer Davis • 9:00 AM - 10:30 AM</p>
+                                    </div>
+                                    <span class="status-badge" style="background: #27ae60; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">Confirmed</span>
+                                </div>
+                            </div>
+                            
+                            <div style="border-left: 4px solid #f39c12; padding: 1rem; margin-bottom: 1rem; background: var(--gradient-soft);">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <h4 style="margin-bottom: 0.25rem;">Emma Thompson - Luxury Pedicure</h4>
+                                        <p style="color: var(--text-light); font-size: 0.9rem;">Client: Maria Rodriguez • 10:00 AM - 11:00 AM</p>
+                                    </div>
+                                    <span class="status-badge" style="background: #f39c12; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">In Progress</span>
+                                </div>
+                            </div>
+                            
+                            <div style="border-left: 4px solid #e74c3c; padding: 1rem; margin-bottom: 1rem; background: var(--gradient-soft);">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <h4 style="margin-bottom: 0.25rem;">Olivia Davis - Custom Nail Art</h4>
+                                        <p style="color: var(--text-light); font-size: 0.9rem;">Client: Ashley Wilson • 2:00 PM - 4:00 PM</p>
+                                    </div>
+                                    <span class="status-badge" style="background: #e74c3c; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">Cancelled</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft);">
+                        <h3 style="margin-bottom: 1.5rem;">Quick Stats</h3>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: var(--gradient-soft); border-radius: var(--border-radius);">
+                                <span style="font-weight: 500;">New Clients This Week</span>
+                                <span style="font-weight: 600; color: var(--primary-color);">12</span>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: var(--gradient-soft); border-radius: var(--border-radius);">
+                                <span style="font-weight: 500;">Pending Appointments</span>
+                                <span style="font-weight: 600; color: var(--primary-color);">8</span>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: var(--gradient-soft); border-radius: var(--border-radius);">
+                                <span style="font-weight: 500;">Unread Messages</span>
+                                <span style="font-weight: 600; color: var(--primary-color);">5</span>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: var(--gradient-soft); border-radius: var(--border-radius);">
+                                <span style="font-weight: 500;">Low Stock Alerts</span>
+                                <span style="font-weight: 600; color: #e74c3c;">3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointments Management -->
+            <section id="appointments" class="dashboard-section" style="display: none;">
+                <h2>Appointment Management</h2>
+                
+                <div style="background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <h3>All Appointments</h3>
+                        <div style="display: flex; gap: 1rem;">
+                            <input type="date" class="form-control" style="width: 200px;">
+                            <select class="form-control" style="width: 150px;">
+                                <option>All Status</option>
+                                <option>Confirmed</option>
+                                <option>Pending</option>
+                                <option>Cancelled</option>
+                                <option>Completed</option>
+                            </select>
+                            <button class="btn btn-primary">Add Appointment</button>
+                        </div>
+                    </div>
+                    
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid var(--primary-color);">
+                                    <th style="text-align: left; padding: 1rem;">Date & Time</th>
+                                    <th style="text-align: left; padding: 1rem;">Client</th>
+                                    <th style="text-align: left; padding: 1rem;">Service</th>
+                                    <th style="text-align: left; padding: 1rem;">Artist</th>
+                                    <th style="text-align: left; padding: 1rem;">Status</th>
+                                    <th style="text-align: left; padding: 1rem;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #f0f0f0;">
+                                    <td style="padding: 1rem;">Mar 15, 2:00 PM</td>
+                                    <td style="padding: 1rem;">Jennifer Davis</td>
+                                    <td style="padding: 1rem;">Gel Manicure</td>
+                                    <td style="padding: 1rem;">Sarah Mitchell</td>
+                                    <td style="padding: 1rem;">
+                                        <select class="status-select" style="padding: 0.25rem 0.5rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+                                            <option value="confirmed" selected>Confirmed</option>
+                                            <option value="pending">Pending</option>
+                                            <option value="cancelled">Cancelled</option>
+                                            <option value="completed">Completed</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 1rem;">
+                                        <button class="btn btn-outline" style="font-size: 0.8rem; padding: 0.25rem 0.75rem;">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #f0f0f0;">
+                                    <td style="padding: 1rem;">Mar 15, 3:30 PM</td>
+                                    <td style="padding: 1rem;">Maria Rodriguez</td>
+                                    <td style="padding: 1rem;">Luxury Pedicure</td>
+                                    <td style="padding: 1rem;">Emma Thompson</td>
+                                    <td style="padding: 1rem;">
+                                        <select class="status-select" style="padding: 0.25rem 0.5rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+                                            <option value="confirmed">Confirmed</option>
+                                            <option value="pending" selected>Pending</option>
+                                            <option value="cancelled">Cancelled</option>
+                                            <option value="completed">Completed</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding: 1rem;">
+                                        <button class="btn btn-outline" style="font-size: 0.8rem; padding: 0.25rem 0.75rem;">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Appointments Management -->
+            <section id="appointments" class="dashboard-section" style="display: none;">
+                <h2>Appointments Management</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft); text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📅</div>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.5rem;">24</div>
+                        <div style="color: var(--text-light); font-size: 0.9rem;">Today's Appointments</div>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft); text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">⏰</div>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: #f39c12; margin-bottom: 0.5rem;">8</div>
+                        <div style="color: var(--text-light); font-size: 0.9rem;">Pending</div>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft); text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">✅</div>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: #27ae60; margin-bottom: 0.5rem;">16</div>
+                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;">3</button>
+                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clients Management -->
+            <section id="clients" class="dashboard-section" style="display: none;">
+                <h2>Client Management</h2>
+                
+                <div style="background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <h3>All Clients</h3>
+                        <div style="display: flex; gap: 1rem;">
+                            <input type="text" class="form-control" placeholder="Search clients..." style="width: 250px;">
+                            <button class="btn btn-primary">Add Client</button>
+                        </div>
+                    </div>
+                    
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid var(--primary-color);">
+                                    <th style="text-align: left; padding: 1rem;">Name</th>
+                                    <th style="text-align: left; padding: 1rem;">Email</th>
+                                    <th style="text-align: left; padding: 1rem;">Phone</th>
+                                    <th style="text-align: left; padding: 1rem;">Member Since</th>
+                                    <th style="text-align: left; padding: 1rem;">Total Visits</th>
+                                    <th style="text-align: left; padding: 1rem;">Status</th>
+                                    <th style="text-align: left; padding: 1rem;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #f0f0f0;">
+                                    <td style="padding: 1rem;">Jennifer Davis</td>
+                                    <td style="padding: 1rem;">jennifer@email.com</td>
+                                    <td style="padding: 1rem;">(555) 123-4567</td>
+                                    <td style="padding: 1rem;">Jan 2023</td>
+                                    <td style="padding: 1rem;">24</td>
+                                    <td style="padding: 1rem;"><span class="status-badge" style="background: #27ae60; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">VIP</span></td>
+                                    <td style="padding: 1rem;">
+                                        <button class="btn btn-outline" style="font-size: 0.8rem; padding: 0.25rem 0.75rem;">View</button>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #f0f0f0;">
+                                    <td style="padding: 1rem;">Maria Rodriguez</td>
+                                    <td style="padding: 1rem;">maria@email.com</td>
+                                    <td style="padding: 1rem;">(555) 234-5678</td>
+                                    <td style="padding: 1rem;">Mar 2023</td>
+                                    <td style="padding: 1rem;">12</td>
+                                    <td style="padding: 1rem;"><span class="status-badge" style="background: #3498db; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">Active</span></td>
+                                    <td style="padding: 1rem;">
+                                        <button class="btn btn-outline" style="font-size: 0.8rem; padding: 0.25rem 0.75rem;">View</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Management -->
+            <section id="services" class="dashboard-section" style="display: none;">
+                <h2>Service Management</h2>
+                
+                <div style="background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <h3>Services & Pricing</h3>
+                        <button class="btn btn-primary">Add New Service</button>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                        <div style="border: 1px solid #e0e0e0; border-radius: var(--border-radius); padding: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                <h4>Classic Manicure</h4>
+                                <div style="text-align: right;">
+                                    <div style="font-weight: 600; color: var(--primary-color);">$45</div>
+                                    <div style="font-size: 0.8rem; color: var(--text-light);">45 min</div>
+                                </div>
+                            </div>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Traditional nail care with cuticle treatment and premium polish.</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button class="btn btn-outline" style="font-size: 0.8rem;">Edit</button>
+                                <button class="btn btn-outline" style="font-size: 0.8rem;">Disable</button>
+                            </div>
+                        </div>
+                        
+                        <div style="border: 1px solid #e0e0e0; border-radius: var(--border-radius); padding: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                <h4>Gel Manicure</h4>
+                                <div style="text-align: right;">
+                                    <div style="font-weight: 600; color: var(--primary-color);">$65</div>
+                                    <div style="font-size: 0.8rem; color: var(--text-light);">60 min</div>
+                                </div>
+                            </div>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Long-lasting gel polish application with LED curing.</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button class="btn btn-outline" style="font-size: 0.8rem;">Edit</button>
+                                <button class="btn btn-outline" style="font-size: 0.8rem;">Disable</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Management -->
+            <section id="gallery" class="dashboard-section" style="display: none;">
+                <h2>Gallery Management</h2>
+                
+                <div style="background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <h3>Design Gallery</h3>
+                        <button class="btn btn-primary">Upload New Design</button>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                        <div style="border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-soft);">
+                            <img src="assets/images/gallery/floral-elegance.jpg" alt="Floral Elegance" style="width: 100%; height: 150px; object-fit: cover;">
+                            <div style="padding: 1rem;">
+                                <h4 style="margin-bottom: 0.5rem;">Floral Elegance</h4>
+                                <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Category: Artistic</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-outline" style="font-size: 0.8rem;">Edit</button>
+                                    <button class="btn btn-outline" style="font-size: 0.8rem;">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-soft);">
+                            <img src="assets/images/gallery/french-classic.jpg" alt="French Classic" style="width: 100%; height: 150px; object-fit: cover;">
+                            <div style="padding: 1rem;">
+                                <h4 style="margin-bottom: 0.5rem;">French Classic</h4>
+                                <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Category: Classic</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-outline" style="font-size: 0.8rem;">Edit</button>
+                                    <button class="btn btn-outline" style="font-size: 0.8rem;">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-soft);">
+                            <img src="assets/images/gallery/glitter-glam.jpg" alt="Glitter Glam" style="width: 100%; height: 150px; object-fit: cover;">
+                            <div style="padding: 1rem;">
+                                <h4 style="margin-bottom: 0.5rem;">Glitter Glam</h4>
+                                <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Category: Party</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-outline" style="font-size: 0.8rem;">Edit</button>
+                                    <button class="btn btn-outline" style="font-size: 0.8rem;">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-soft);">
+                            <img src="assets/images/gallery/minimalist-chic.jpg" alt="Minimalist Chic" style="width: 100%; height: 150px; object-fit: cover;">
+                            <div style="padding: 1rem;">
+                                <h4 style="margin-bottom: 0.5rem;">Minimalist Chic</h4>
+                                <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Category: Modern</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-outline" style="font-size: 0.8rem;">Edit</button>
+                                    <button class="btn btn-outline" style="font-size: 0.8rem;">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-soft);">
+                            <img src="assets/images/gallery/bridal-beauty.jpg" alt="Bridal Beauty" style="width: 100%; height: 150px; object-fit: cover;">
+                            <div style="padding: 1rem;">
+                                <h4 style="margin-bottom: 0.5rem;">Bridal Beauty</h4>
+                                <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Category: Wedding</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-outline" style="font-size: 0.8rem;">Edit</button>
+                                    <button class="btn btn-outline" style="font-size: 0.8rem;">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-soft);">
+                            <img src="assets/images/gallery/neon-dreams.jpg" alt="Neon Dreams" style="width: 100%; height: 150px; object-fit: cover;">
+                            <div style="padding: 1rem;">
+                                <h4 style="margin-bottom: 0.5rem;">Neon Dreams</h4>
+                                <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Category: Trendy</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-outline" style="font-size: 0.8rem;">Edit</button>
+                                    <button class="btn btn-outline" style="font-size: 0.8rem;">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Staff Management -->
+            <section id="staff" class="dashboard-section" style="display: none;">
+                <h2>Staff Management</h2>
+                
+                <div style="background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <h3>Team Members</h3>
+                        <button class="btn btn-primary">Add Staff Member</button>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                        <div style="border: 1px solid #e0e0e0; border-radius: var(--border-radius); padding: 1.5rem;">
+                            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                <img src="assets/images/staff/sarah-mitchell.jpg" alt="Sarah Mitchell" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 1rem;">
+                                <div>
+                                    <h4 style="margin-bottom: 0.25rem;">Sarah Mitchell</h4>
+                                    <p style="color: var(--text-light); font-size: 0.9rem;">Lead Nail Artist</p>
+                                </div>
+                            </div>
+                            <div style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">
+                                <div>📅 Mon-Fri</div>
+                                <div>🕐 9AM - 6PM</div>
+                                <div>⭐ 4.9 Rating</div>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button class="btn btn-outline" style="font-size: 0.8rem;">Edit</button>
+                                <button class="btn btn-outline" style="font-size: 0.8rem;">Schedule</button>
+                            </div>
+                        </div>
+                        
+                        <div style="border: 1px solid #e0e0e0; border-radius: var(--border-radius); padding: 1.5rem;">
+                            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                <img src="assets/images/staff/emma-thompson.jpg" alt="Emma Thompson" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 1rem;">
+                                <div>
+                                    <h4 style="margin-bottom: 0.25rem;">Emma Thompson</h4>
+                                    <p style="color: var(--text-light); font-size: 0.9rem;">Senior Nail Technician</p>
+                                </div>
+                            </div>
+                            <div style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">
+                                <div>📅 Tue-Sat</div>
+                                <div>🕐 10AM - 7PM</div>
+                                <div>⭐ 4.8 Rating</div>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button class="btn btn-outline" style="font-size: 0.8rem;">Edit</button>
+                                <button class="btn btn-outline" style="font-size: 0.8rem;">Schedule</button>
+                            </div>
+                        </div>
+                        
+                        <div style="border: 1px solid #e0e0e0; border-radius: var(--border-radius); padding: 1.5rem;">
+                            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                <img src="assets/images/staff/lisa-johnson.jpg" alt="Lisa Johnson" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 1rem;">
+                                <div>
+                                    <h4 style="margin-bottom: 0.25rem;">Lisa Johnson</h4>
+                                    <p style="color: var(--text-light); font-size: 0.9rem;">Nail Artist</p>
+                                </div>
+                            </div>
+                            <div style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">
+                                <div>📅 Wed-Sun</div>
+                                <div>🕐 11AM - 8PM</div>
+                                <div>⭐ 4.7 Rating</div>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button class="btn btn-outline" style="font-size: 0.8rem;">Edit</button>
+                                <button class="btn btn-outline" style="font-size: 0.8rem;">Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics -->
+            <section id="analytics" class="dashboard-section" style="display: none;">
+                <h2>Analytics & Reports</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-value">$12,750</div>
+                        <div class="stat-label">Monthly Revenue</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">📈</div>
+                        <div class="stat-value">+15%</div>
+                        <div class="stat-label">Growth Rate</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-value">89</div>
+                        <div class="stat-label">New Clients</div>
+                    </div>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft); margin-top: 2rem;">
+                    <h3 style="margin-bottom: 1.5rem;">Revenue Chart</h3>
+                    <div class="chart-container" style="height: 300px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">📈</div>
+                            <h4 style="margin-bottom: 1rem; color: var(--primary-color);">Monthly Revenue Trend</h4>
+                            <div style="display: flex; justify-content: space-around; margin-bottom: 1rem;">
+                                <div>
+                                    <div style="font-size: 1.5rem; font-weight: 700; color: #27ae60;">$12,450</div>
+                                    <div style="font-size: 0.8rem; color: var(--text-light);">This Month</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">$11,200</div>
+                                    <div style="font-size: 0.8rem; color: var(--text-light);">Last Month</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 1.5rem; font-weight: 700; color: #f39c12;">+11.2%</div>
+                                    <div style="font-size: 0.8rem; color: var(--text-light);">Growth</div>
+                                </div>
+                            </div>
+                            <p style="color: var(--text-light); font-size: 0.9rem;">Interactive chart would display monthly revenue trends</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft);">
+                        <h4 style="margin-bottom: 1rem; color: var(--primary-color);">🎯 Top Services</h4>
+                        <div style="space-y: 0.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.9rem;">Gel Manicure</span>
+                                <span style="font-weight: 600;">45%</span>
+                            </div>
+                            <div style="background: #e9ecef; height: 8px; border-radius: 4px; margin-bottom: 1rem;">
+                                <div style="background: var(--primary-color); height: 100%; width: 45%; border-radius: 4px;"></div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.9rem;">Luxury Pedicure</span>
+                                <span style="font-weight: 600;">30%</span>
+                            </div>
+                            <div style="background: #e9ecef; height: 8px; border-radius: 4px; margin-bottom: 1rem;">
+                                <div style="background: var(--primary-color); height: 100%; width: 30%; border-radius: 4px;"></div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.9rem;">Nail Art</span>
+                                <span style="font-weight: 600;">25%</span>
+                            </div>
+                            <div style="background: #e9ecef; height: 8px; border-radius: 4px;">
+                                <div style="background: var(--primary-color); height: 100%; width: 25%; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft);">
+                        <h4 style="margin-bottom: 1rem; color: var(--primary-color);">👥 Client Demographics</h4>
+                        <div style="space-y: 0.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.9rem;">18-25 years</span>
+                                <span style="font-weight: 600;">22%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.9rem;">26-35 years</span>
+                                <span style="font-weight: 600;">48%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.9rem;">36-45 years</span>
+                                <span style="font-weight: 600;">25%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="font-size: 0.9rem;">46+ years</span>
+                                <span style="font-weight: 600;">5%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft);">
+                        <h4 style="margin-bottom: 1rem; color: var(--primary-color);">⏰ Peak Hours</h4>
+                        <div style="space-y: 0.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.9rem;">9AM - 12PM</span>
+                                <span style="font-weight: 600; color: #27ae60;">High</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.9rem;">12PM - 3PM</span>
+                                <span style="font-weight: 600; color: #f39c12;">Medium</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.9rem;">3PM - 6PM</span>
+                                <span style="font-weight: 600; color: #27ae60;">High</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="font-size: 0.9rem;">6PM - 8PM</span>
+                                <span style="font-weight: 600; color: #e74c3c;">Low</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Messages -->
+            <section id="messages" class="dashboard-section" style="display: none;">
+                <h2>Messages</h2>
+                
+                <div style="background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft);">
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem;">
+                        <div>
+                            <h3 style="margin-bottom: 1rem;">Inbox</h3>
+                            <div style="border: 1px solid #e0e0e0; border-radius: var(--border-radius);">
+                                <div style="padding: 1rem; border-bottom: 1px solid #f0f0f0; cursor: pointer; background: var(--gradient-soft);">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div>
+                                            <h4 style="margin-bottom: 0.25rem;">Jennifer Davis</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem;">Question about services...</p>
+                                        </div>
+                                        <div style="text-align: right;">
+                                            <div style="width: 8px; height: 8px; background: var(--primary-color); border-radius: 50%; margin-left: auto;"></div>
+                                            <div style="font-size: 0.8rem; color: var(--text-light);">2h ago</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 style="margin-bottom: 1rem;">Message</h3>
+                            <div style="border: 1px solid #e0e0e0; border-radius: var(--border-radius); padding: 1.5rem; height: 300px; overflow-y: auto;">
+                                <div style="margin-bottom: 1rem;">
+                                    <div style="font-weight: 600; margin-bottom: 0.5rem;">Jennifer Davis</div>
+                                    <p style="color: var(--text-light);">Hi, I was wondering if you offer group discounts for bridal parties?</p>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1rem;">
+                                <textarea class="form-control" placeholder="Type your reply..." rows="3"></textarea>
+                                <button class="btn btn-primary" style="margin-top: 0.5rem;">Send Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings -->
+            <section id="settings" class="dashboard-section" style="display: none;">
+                <h2>Settings</h2>
+                
+                <div style="background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft);">
+                    <h3 style="margin-bottom: 1.5rem;">Studio Settings</h3>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h4 style="margin-bottom: 1rem;">Business Hours</h4>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Monday - Friday</span>
+                                    <span>9:00 AM - 7:00 PM</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Saturday</span>
+                                    <span>9:00 AM - 6:00 PM</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Sunday</span>
+                                    <span>10:00 AM - 4:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 style="margin-bottom: 1rem;">Contact Information</h4>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" class="form-control" value="(555) 123-4567">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" value="hello@luxenailstudio.com">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" style="margin-top: 2rem;">Save Settings</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Admin Dashboard specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            setupAdminDashboard();
+            
+            // Sidebar navigation - FIXED VERSION
+            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+            const sections = document.querySelectorAll('.dashboard-section');
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get target section ID from data-page attribute
+                    const targetId = this.getAttribute('data-page');
+                    console.log('Clicked menu item:', targetId);
+                    
+                    // Update active menu state
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Hide all sections with force
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                        section.classList.remove('active');
+                        section.style.opacity = '0';
+                    });
+                    
+                    // Show only target section with force
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        console.log('Found target section:', targetSection);
+                        targetSection.style.display = 'block';
+                        targetSection.classList.add('active');
+                        targetSection.style.opacity = '1';
+                        targetSection.style.transform = 'translateY(0)';
+                        
+                        // Scroll to top of main content area (NOT window)
+                        const dashboardMain = document.querySelector('.dashboard-main');
+                        if (dashboardMain) {
+                            dashboardMain.scrollTop = 0;
+                        }
+                    } else {
+                        console.error('Target section not found:', targetId);
+                    }
+                });
+            });
+            
+            // Ensure Overview section is visible on load
+            const overviewSection = document.getElementById('overview');
+            if (overviewSection) {
+                overviewSection.style.display = 'block';
+                overviewSection.classList.add('active');
+                overviewSection.style.opacity = '1';
+                overviewSection.style.transform = 'translateY(0)';
+            }
+            
+            // Form submissions
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    if (window.NailArtStudio && window.NailArtStudio.showNotification) {
+                        window.NailArtStudio.showNotification('Settings updated successfully!', 'success');
+                    }
+                });
+            });
+        });
+        
+        function setupAdminDashboard() {
+            // Initialize admin dashboard
+            console.log('Admin Dashboard initialized');
+            
+            // Setup responsive menu
+            setupResponsiveAdminMenu();
+        }
+        
+        function setupResponsiveAdminMenu() {
+            const menuToggle = document.querySelector('.dashboard-menu-toggle');
+            const sidebar = document.querySelector('.dashboard-sidebar');
+            
+            if (window.innerWidth <= 768) {
+                menuToggle.style.display = 'block';
+            } else {
+                menuToggle.style.display = 'none';
+                sidebar.classList.remove('active');
+            }
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth <= 768) {
+                    menuToggle.style.display = 'block';
+                } else {
+                    menuToggle.style.display = 'none';
+                    sidebar.classList.remove('active');
+                }
+            });
+        }
+        
+        function toggleAdminDashboardMenu() {
+            const sidebar = document.querySelector('.dashboard-sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
