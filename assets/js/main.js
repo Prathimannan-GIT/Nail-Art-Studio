@@ -7,6 +7,7 @@ const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
+const themeToggle = document.querySelector('.theme-toggle');
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializeApp() {
     setupHeader();
+    setupDarkMode();
     setupMobileMenu();
     setupNavigation();
     setupGalleryFilter();
@@ -23,18 +25,67 @@ function initializeApp() {
     setupSmoothScrolling();
 }
 
+// ===== DARK MODE =====
+function setupDarkMode() {
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    // Update toggle button appearance
+    updateThemeToggle(savedTheme);
+    
+    // Add theme toggle functionality
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            // Update theme
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update toggle button
+            updateThemeToggle(newTheme);
+            
+            // Update header background
+            updateHeaderBackground();
+        });
+    }
+}
+
+function updateThemeToggle(theme) {
+    if (themeToggle) {
+        const svg = themeToggle.querySelector('svg');
+        if (svg) {
+            svg.innerHTML = theme === 'dark' ? 
+                '<circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/>' :
+                '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>';
+        }
+    }
+}
+
+function updateHeaderBackground() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const scrollY = window.scrollY;
+    
+    if (currentTheme === 'dark') {
+        header.style.background = 'rgba(26, 26, 26, 0.98)';
+        header.style.boxShadow = scrollY > 100 ? '0 4px 30px rgba(0,0,0,0.3)' : '0 2px 20px rgba(0,0,0,0.2)';
+    } else {
+        header.style.background = scrollY > 100 ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = scrollY > 100 ? '0 4px 30px rgba(0,0,0,0.1)' : '0 2px 20px rgba(0,0,0,0.05)';
+    }
+}
+
 // ===== HEADER FUNCTIONALITY =====
 function setupHeader() {
     // Header scroll effect
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 4px 30px rgba(0,0,0,0.1)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
-        }
+        updateHeaderBackground();
     });
+    
+    // Initialize header background
+    updateHeaderBackground();
 }
 
 // ===== MOBILE MENU =====

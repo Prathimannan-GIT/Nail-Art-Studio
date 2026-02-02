@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Luxe Nail Art Studio</title>
-    <meta name="description" content="Create your Luxe Nail Studio account to book appointments, manage your profile, and access exclusive member benefits and rewards.">
-    
+    <meta name="description"
+        content="Create your Luxe Nail Studio account to book appointments, manage your profile, and access exclusive member benefits and rewards.">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
 </head>
-<body>
+
+<body class="auth-page">
     <!-- Header -->
     <header class="header">
         <div class="header-content">
@@ -30,17 +35,16 @@
                             <stop offset="100%" style="stop-color:#b8935f;stop-opacity:1" />
                         </linearGradient>
                     </defs>
-                    <circle cx="20" cy="20" r="18" fill="url(#logoGradient)"/>
-                    <path d="M20 8 L24 16 L32 16 L26 22 L28 30 L20 26 L12 30 L14 22 L8 16 L16 16 Z" fill="white"/>
+                    <circle cx="20" cy="20" r="18" fill="url(#logoGradient)" />
+                    <path d="M20 8 L24 16 L32 16 L26 22 L28 30 L20 26 L12 30 L14 22 L8 16 L16 16 Z" fill="white" />
                 </svg>
                 <span>Luxe Nail Studio</span>
             </a>
-            
-            <!-- CENTER SECTION - Navigation Menu Only -->
+
+            <!-- CENTER SECTION - Navigation Menu -->
             <nav class="nav-center">
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="services.html" class="nav-link">Services</a></li>
                     <li><a href="gallery.html" class="nav-link">Gallery</a></li>
@@ -49,21 +53,31 @@
                     <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
-                
-                <!-- Mobile Login/Register Actions (hidden on desktop) -->
+
+                <!-- Mobile Login/Register Actions -->
                 <div class="mobile-nav-actions">
+                    <button class="theme-toggle" aria-label="Toggle dark mode" style="margin: 0 auto 1rem;">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
+                        </svg>
+                    </button>
                     <a href="login.html" class="btn btn-outline">Login</a>
                     <a href="register.html" class="btn btn-primary">Register</a>
                 </div>
             </nav>
-            
-            <!-- RIGHT SECTION - Login | Register Only -->
+
+            <!-- RIGHT SECTION - Actions -->
             <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
+                    </svg>
+                </button>
                 <a href="login.html" class="btn btn-outline">Login</a>
                 <a href="register.html" class="btn btn-primary">Register</a>
             </div>
-            
-            <!-- Mobile Menu Toggle - RIGHT (hidden on desktop) -->
+
+            <!-- Mobile Menu Toggle -->
             <button class="menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -75,246 +89,167 @@
     <!-- Register Section -->
     <section class="auth-container">
         <div class="auth-form">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <div style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 2rem;">✨</div>
-                <h2>Join Luxe Nail Studio</h2>
-                <p style="color: var(--text-light);">Create your account for exclusive benefits</p>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <div
+                    style="width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; color: white; font-size: 1.5rem;">
+                    ✨</div>
+                <h2 style="margin-bottom: 0.5rem; font-size: 1.8rem;">Join Our Community</h2>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Create your account for exclusive benefits
+                </p>
             </div>
-            
+
             <form id="register-form">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <div class="form-group">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;">
+                    <div class="form-group" style="margin-bottom: 0.5rem;">
                         <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" name="firstName" class="form-control" required placeholder="First name">
+                        <input type="text" id="firstName" name="firstName" class="form-control" required
+                            placeholder="First name">
                     </div>
-                    
-                    <div class="form-group">
+                    <div class="form-group" style="margin-bottom: 0.5rem;">
                         <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" class="form-control" required placeholder="Last name">
+                        <input type="text" id="lastName" name="lastName" class="form-control" required
+                            placeholder="Last name">
                     </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your email">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;">
+                    <div class="form-group" style="margin-bottom: 0.5rem;">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required
+                            placeholder="Email address">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0.5rem;">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" required
+                            placeholder="Phone number">
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" class="form-control" required placeholder="Enter your phone number">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;">
+                    <div class="form-group" style="margin-bottom: 0.5rem;">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" required
+                            placeholder="Password" minlength="8">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0.5rem;">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required
+                            placeholder="Confirm">
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-control" required placeholder="Create a password" minlength="8">
-                    <small style="color: var(--text-light); font-size: 0.8rem;">Minimum 8 characters</small>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.8rem;">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="birthdate">Date of Birth</label>
+                        <input type="date" id="birthdate" name="birthdate" class="form-control" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="membership">Membership</label>
+                        <select id="membership" name="membership" class="form-control">
+                            <option value="">Select type</option>
+                            <option value="vip">VIP ($150/mo)</option>
+                            <option value="student">Student ($80/mo)</option>
+                            <option value="regular">Free</option>
+                        </select>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required placeholder="Confirm your password">
-                </div>
-                
-                <div class="form-group">
-                    <label for="birthdate">Date of Birth</label>
-                    <input type="date" id="birthdate" name="birthdate" class="form-control" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="membership">Membership Interest</label>
-                    <select id="membership" name="membership" class="form-control">
-                        <option value="">Select membership type</option>
-                        <option value="vip">VIP Monthly Membership ($150/month)</option>
-                        <option value="student">Student Membership ($80/month)</option>
-                        <option value="regular">Regular Account (Free)</option>
-                    </select>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: flex; align-items: flex-start;">
+
+                <div style="margin-bottom: 0.8rem; display: flex; flex-direction: column; gap: 0.3rem;">
+                    <label style="display: flex; align-items: flex-start; margin-bottom: 0;">
                         <input type="checkbox" name="terms" required style="margin-right: 0.5rem; margin-top: 0.25rem;">
-                        <span style="color: var(--text-light); font-size: 0.9rem;">
-                            I agree to the <a href="terms-of-service.html" style="color: var(--primary-color);">Terms of Service</a> and 
-                            <a href="privacy-policy.html" style="color: var(--primary-color);">Privacy Policy</a>
+                        <span style="color: var(--text-light); font-size: 0.8rem;">
+                            I agree to the <a href="terms-of-service.html"
+                                style="color: var(--primary-color);">Terms</a> and
+                            <a href="privacy-policy.html" style="color: var(--primary-color);">Privacy</a>
                         </span>
                     </label>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: flex; align-items: flex-start;">
+                    <label style="display: flex; align-items: flex-start; margin-bottom: 0;">
                         <input type="checkbox" name="newsletter" style="margin-right: 0.5rem; margin-top: 0.25rem;">
-                        <span style="color: var(--text-light); font-size: 0.9rem;">
-                            Send me exclusive offers and nail care tips via email
+                        <span style="color: var(--text-light); font-size: 0.8rem;">
+                            Send me exclusive offers via email
                         </span>
                     </label>
                 </div>
-                
-                <button type="submit" class="btn btn-primary">Create Account</button>
-                
-                <div style="text-align: center; margin: 1.5rem 0;">
-                    <span style="color: var(--text-light);">Or register with</span>
+
+                <button type="submit" class="btn btn-primary" style="margin-bottom: 0.5rem;">Create Account</button>
+
+                <div style="text-align: center; margin: 0.8rem 0;">
+                    <span style="color: var(--text-light); font-size: 0.8rem;">Or register with</span>
                 </div>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <button type="button" class="btn btn-outline" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;">
+                    <button type="button" class="btn btn-outline"
+                        style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem;">
                         <span>f</span> Facebook
                     </button>
-                    <button type="button" class="btn btn-outline" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <button type="button" class="btn btn-outline"
+                        style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem;">
                         <span>G</span> Google
                     </button>
                 </div>
             </form>
-            
-            <div class="auth-links">
+
+            <div class="auth-links" style="margin-top: 0.8rem; font-size: 0.9rem;">
                 <p>Already have an account? <a href="login.html">Login here</a></p>
                 <p><a href="index.html">Back to Home</a></p>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="section section-services" style="background: var(--gradient-soft);">
-        <div class="container">
-            <div class="text-center">
-                <h2>Member Benefits</h2>
-                <p>Why join the Luxe Nail Studio family?</p>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div style="text-align: center;">
-                    <div style="width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem;">🎁</div>
-                    <h3>Exclusive Offers</h3>
-                    <p style="color: var(--text-light);">Member-only discounts and special promotions</p>
-                </div>
-                
-                <div style="text-align: center;">
-                    <div style="width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem;">⚡</div>
-                    <h3>Priority Booking</h3>
-                    <p style="color: var(--text-light);">Skip the queue with priority appointment scheduling</p>
-                </div>
-                
-                <div style="text-align: center;">
-                    <div style="width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem;">📋</div>
-                    <h3>Appointment History</h3>
-                    <p style="color: var(--text-light);">Track your nail art journey and preferences</p>
-                </div>
-                
-                <div style="text-align: center;">
-                    <div style="width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem;">💎</div>
-                    <h3>Rewards Program</h3>
-                    <p style="color: var(--text-light);">Earn points with every visit and redeem free services</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Luxe Nail Studio</h3>
-                    <p>Where art meets beauty in perfect harmony. Experience premium nail care and artistic designs in our luxurious studio environment.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">f</a>
-                        <a href="#" class="social-icon">📷</a>
-                        <a href="#" class="social-icon">🐦</a>
-                        <a href="#" class="social-icon">in</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Our Services</a></li>
-                        <li><a href="gallery.html">Design Gallery</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="appointments.html">Book Appointment</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="services.html">Classic Manicure</a></li>
-                        <li><a href="services.html">Nail Art Design</a></li>
-                        <li><a href="services.html">Gel Extensions</a></li>
-                        <li><a href="services.html">Pedicure Services</a></li>
-                        <li><a href="services.html">Nail Treatments</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links">
-                        <li>123 Beauty Boulevard</li>
-                        <li>Luxury District, LD 12345</li>
-                        <li>Phone: (555) 123-4567</li>
-                        <li>Email: hello@luxenailstudio.com</li>
-                        <li>Hours: Mon-Sat 9AM-7PM</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Luxe Nail Studio. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
-            </div>
-        </div>
-    </footer>
 
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
     <script>
         // Registration form specific JavaScript
-        document.getElementById('register-form').addEventListener('submit', function(e) {
+        document.getElementById('register-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Get form data
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
-            
+
             // Validate passwords match
             if (data.password !== data.confirmPassword) {
                 window.NailArtStudio.showNotification('Passwords do not match!', 'error');
                 return;
             }
-            
+
             // Show loading state
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Creating Account...';
             submitBtn.disabled = true;
-            
+
             // Simulate registration process
             setTimeout(() => {
                 // In a real application, this would make an API call
                 console.log('Registration data:', data);
-                
+
                 // Show success message
                 window.NailArtStudio.showNotification('Account created successfully! Redirecting to login...', 'success');
-                
+
                 // Redirect to login (in real app)
                 setTimeout(() => {
                     window.location.href = 'login.html';
                 }, 2000);
-                
+
                 // Reset button
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }, 2000);
         });
-        
+
         // Social registration buttons
         document.querySelectorAll('button[type="button"]').forEach(btn => {
             if (btn.textContent.includes('Facebook') || btn.textContent.includes('Google')) {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     const provider = this.textContent.includes('Facebook') ? 'Facebook' : 'Google';
                     window.NailArtStudio.showNotification(`${provider} registration would be implemented here`, 'info');
                 });
             }
         });
-        
+
         // Set max date for birthdate (must be 18+)
         const birthdateInput = document.getElementById('birthdate');
         if (birthdateInput) {
@@ -324,4 +259,5 @@
         }
     </script>
 </body>
+
 </html>

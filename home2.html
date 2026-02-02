@@ -57,8 +57,13 @@
                 </div>
             </nav>
             
-            <!-- RIGHT SECTION - Login | Register Only -->
+            <!-- RIGHT SECTION - Login | Register | Theme Toggle -->
             <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
+                    </svg>
+                </button>
                 <a href="login.html" class="btn btn-outline">Login</a>
                 <a href="register.html" class="btn btn-primary">Register</a>
             </div>
@@ -279,7 +284,19 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Luxe Nail Studio</h3>
+                    <div class="footer-logo" style="display: flex; align-items: center; gap: 12px; margin-bottom: 1rem;">
+                        <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px;">
+                            <defs>
+                                <linearGradient id="footerLogoGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#d4a574;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#b8935f;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="20" cy="20" r="18" fill="url(#footerLogoGradient2)"/>
+                            <path d="M20 8 L24 16 L32 16 L26 22 L28 30 L20 26 L12 30 L14 22 L8 16 L16 16 Z" fill="white"/>
+                        </svg>
+                        <h3 style="margin: 0; font-size: 1.5rem;">Luxe Nail Studio</h3>
+                    </div>
                     <p>Where art meets beauty in perfect harmony. Experience premium nail care and artistic designs in our luxurious studio environment.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon">f</a>
