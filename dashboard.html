@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.svg">
 </head>
 
 <body>
@@ -56,6 +56,11 @@
 
                 <!-- Mobile Login/Register Actions (hidden on desktop) -->
                 <div class="mobile-nav-actions">
+                    <button class="theme-toggle" aria-label="Toggle dark mode" style="margin: 0 auto 1.5rem; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"></path>
+                        </svg>
+                    </button>
                     <a href="login.html" class="btn btn-outline">Login</a>
                     <a href="register.html" class="btn btn-primary">Register</a>
                 </div>
@@ -82,11 +87,12 @@
     </header>
 
     <!-- Dashboard Portal Section -->
-    <section class="auth-container" style="background: var(--gradient-soft); height: 100vh; padding-top: 70px;">
+    <section class="auth-container portal-page"
+        style="background: var(--bg-secondary); min-height: 100vh; padding: 120px 0 60px;">
         <div class="container" style="max-width: 1000px;">
             <div class="portal-header" style="text-align: center; margin-bottom: 3rem;">
-                <h1 style="font-size: 3rem; margin-bottom: 1rem;">Welcome to the Portal</h1>
-                <p style="font-size: 1.2rem; color: var(--text-light);">Select your destination to manage your Luxe
+                <h1 style="color: var(--text-primary); font-size: 3rem; margin-bottom: 1rem;">Welcome to the Portal</h1>
+                <p style="font-size: 1.2rem; color: var(--text-secondary);">Select your destination to manage your Luxe
                     Experience</p>
             </div>
 
@@ -94,15 +100,16 @@
                 <!-- Client Portal -->
                 <a href="client-dashboard.html" class="portal-card" style="text-decoration: none; color: inherit;">
                     <div
-                        style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.4); border-radius: 24px; padding: 3rem 2rem; text-align: center; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; height: 100%;">
+                        style="background: var(--card-bg); backdrop-filter: blur(15px); border: 1px solid var(--border-color); border-radius: 24px; padding: 3rem 2rem; text-align: center; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; height: 100%; box-shadow: var(--shadow-soft);">
                         <div style="font-size: 4rem; margin-bottom: 1.5rem;">💅</div>
-                        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Client Portal</h2>
-                        <p style="color: var(--text-light); margin-bottom: 2rem;">Manage your appointments, track
+                        <h2 style="color: var(--text-primary); font-size: 2.2rem; margin-bottom: 1rem;">Client Portal
+                        </h2>
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Manage your appointments, track
                             rewards, and explore your history.</p>
                         <div class="btn btn-primary" style="padding: 0.8rem 2rem; border-radius: 50px;">Enter Dashboard
                         </div>
                         <div
-                            style="position: absolute; bottom: -20px; right: -20px; font-size: 8rem; opacity: 0.03; font-weight: 800;">
+                            style="position: absolute; bottom: -20px; right: -20px; font-size: 8rem; opacity: 0.03; font-weight: 800; color: var(--text-primary);">
                             CLIENT</div>
                     </div>
                 </a>
@@ -110,23 +117,31 @@
                 <!-- Admin Portal -->
                 <a href="admin-dashboard.html" class="portal-card" style="text-decoration: none; color: inherit;">
                     <div
-                        style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.4); border-radius: 24px; padding: 3rem 2rem; text-align: center; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; height: 100%;">
+                        style="background: var(--card-bg); backdrop-filter: blur(15px); border: 1px solid var(--border-color); border-radius: 24px; padding: 3rem 2rem; text-align: center; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; height: 100%; box-shadow: var(--shadow-soft);">
                         <div style="font-size: 4rem; margin-bottom: 1.5rem;">⚙️</div>
-                        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Staff Portal</h2>
-                        <p style="color: var(--text-light); margin-bottom: 2rem;">Studio management, staff scheduling,
-                            and business analytics.</p>
+                        <h2 style="color: var(--text-primary); font-size: 2.2rem; margin-bottom: 1rem;">Staff Portal
+                        </h2>
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Studio management, staff
+                            scheduling, and business analytics.</p>
                         <div class="btn btn-outline" style="padding: 0.8rem 2rem; border-radius: 50px;">Staff Login
                         </div>
                         <div
-                            style="position: absolute; bottom: -20px; right: -20px; font-size: 8rem; opacity: 0.03; font-weight: 800;">
+                            style="position: absolute; bottom: -20px; right: -20px; font-size: 8rem; opacity: 0.03; font-weight: 800; color: var(--text-primary);">
                             STAFF</div>
                     </div>
                 </a>
             </div>
 
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="index.html" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">←
-                    Back to Home Page</a>
+                <a href="index.html"
+                    style="color: var(--primary-color); text-decoration: none; font-weight: 500; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back to Home Page
+                </a>
             </div>
         </div>
     </section>
@@ -134,8 +149,7 @@
     <style>
         .portal-card:hover>div {
             transform: translateY(-15px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-            background: white !important;
+            box-shadow: var(--shadow-hover);
         }
 
         .portal-card:hover .btn {
@@ -150,3 +164,4 @@
 </body>
 
 </html>
+

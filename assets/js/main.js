@@ -10,7 +10,7 @@ const galleryItems = document.querySelectorAll('.gallery-item');
 const themeToggle = document.querySelector('.theme-toggle');
 
 // ===== INITIALIZATION =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initializeApp();
 });
 
@@ -23,6 +23,7 @@ function initializeApp() {
     setupScrollAnimations();
     setupFormValidation();
     setupSmoothScrolling();
+    setupScrollUpButton();
 }
 
 // ===== DARK MODE =====
@@ -30,75 +31,78 @@ function setupDarkMode() {
     // Check for saved theme preference or default to light mode
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
-    
-    // Update toggle button appearance
-    updateThemeToggle(savedTheme);
-    
-    // Add theme toggle functionality
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
+
+    // Update all toggle buttons (there might be multiple on the page)
+    const themeToggles = document.querySelectorAll('.theme-toggle');
+
+    themeToggles.forEach(toggle => {
+        updateThemeToggle(toggle, savedTheme);
+
+        toggle.addEventListener('click', function () {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
+
             // Update theme
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            
-            // Update toggle button
-            updateThemeToggle(newTheme);
-            
-            // Update header background
-            updateHeaderBackground();
+
+            // Update all toggle buttons
+            themeToggles.forEach(t => updateThemeToggle(t, newTheme));
+
+            // Update header shadow
+            updateHeaderShadow();
         });
-    }
+    });
 }
 
-function updateThemeToggle(theme) {
-    if (themeToggle) {
-        const svg = themeToggle.querySelector('svg');
+function updateThemeToggle(toggle, theme) {
+    if (toggle) {
+        const svg = toggle.querySelector('svg');
         if (svg) {
-            svg.innerHTML = theme === 'dark' ? 
+            svg.innerHTML = theme === 'dark' ?
                 '<circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/>' :
                 '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>';
         }
     }
 }
 
-function updateHeaderBackground() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
+function updateHeaderShadow() {
     const scrollY = window.scrollY;
-    
-    if (currentTheme === 'dark') {
-        header.style.background = 'rgba(26, 26, 26, 0.98)';
-        header.style.boxShadow = scrollY > 100 ? '0 4px 30px rgba(0,0,0,0.3)' : '0 2px 20px rgba(0,0,0,0.2)';
-    } else {
-        header.style.background = scrollY > 100 ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.95)';
-        header.style.boxShadow = scrollY > 100 ? '0 4px 30px rgba(0,0,0,0.1)' : '0 2px 20px rgba(0,0,0,0.05)';
+    if (header) {
+        if (scrollY > 50) {
+            header.style.boxShadow = 'var(--shadow-hover)';
+            header.style.height = '70px';
+        } else {
+            header.style.boxShadow = 'var(--shadow-soft)';
+            header.style.height = '80px';
+        }
     }
 }
+
+/* Remove updateHeaderBackground as it is replaced by CSS variables and updateHeaderShadow */
 
 // ===== HEADER FUNCTIONALITY =====
 function setupHeader() {
     // Header scroll effect
-    window.addEventListener('scroll', function() {
-        updateHeaderBackground();
+    window.addEventListener('scroll', function () {
+        updateHeaderShadow();
     });
-    
-    // Initialize header background
-    updateHeaderBackground();
+
+    // Initialize header shadow
+    updateHeaderShadow();
 }
 
 // ===== MOBILE MENU =====
 function setupMobileMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navCenter = document.querySelector('.nav-center');
-    
+
     if (menuToggle && navCenter) {
-        menuToggle.addEventListener('click', function(e) {
+        menuToggle.addEventListener('click', function (e) {
             e.stopPropagation();
             navCenter.classList.toggle('mobile-active');
             menuToggle.classList.toggle('active');
-            
+
             // Prevent body scroll when menu is open
             if (navCenter.classList.contains('mobile-active')) {
                 document.body.style.overflow = 'hidden';
@@ -106,20 +110,20 @@ function setupMobileMenu() {
                 document.body.style.overflow = '';
             }
         });
-        
+
         // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (!header.contains(e.target)) {
                 navCenter.classList.remove('mobile-active');
                 menuToggle.classList.remove('active');
                 document.body.style.overflow = '';
             }
         });
-        
+
         // Close menu when clicking on nav links (mobile)
         const navLinks = navCenter.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 navCenter.classList.remove('mobile-active');
                 menuToggle.classList.remove('active');
                 document.body.style.overflow = '';
@@ -132,13 +136,13 @@ function setupMobileMenu() {
 function setupNavigation() {
     // Set active navigation item based on current page
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
+
     navLinks.forEach(link => {
         link.classList.remove('active');
-        
+
         // Match current page with navigation
         const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage || 
+        if (linkPage === currentPage ||
             (currentPage === '' && linkPage === 'index.html') ||
             (currentPage === 'index.html' && linkPage === 'index.html')) {
             link.classList.add('active');
@@ -150,13 +154,13 @@ function setupNavigation() {
 function setupGalleryFilter() {
     if (filterBtns.length > 0 && galleryItems.length > 0) {
         filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 const filter = this.getAttribute('data-filter');
-                
+
                 // Update active button
                 filterBtns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                
+
                 // Filter gallery items
                 galleryItems.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-category') === filter) {
@@ -184,8 +188,8 @@ function setupScrollAnimations() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
+
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in');
@@ -193,7 +197,7 @@ function setupScrollAnimations() {
             }
         });
     }, observerOptions);
-    
+
     // Observe elements for animation
     document.querySelectorAll('.service-card, .gallery-item, .pricing-card, .stat-card').forEach(el => {
         observer.observe(el);
@@ -203,24 +207,24 @@ function setupScrollAnimations() {
 // ===== FORM VALIDATION =====
 function setupFormValidation() {
     const forms = document.querySelectorAll('form');
-    
+
     forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             if (validateForm(form)) {
                 submitForm(form);
             }
         });
-        
+
         // Real-time validation
         const inputs = form.querySelectorAll('.form-control');
         inputs.forEach(input => {
-            input.addEventListener('blur', function() {
+            input.addEventListener('blur', function () {
                 validateField(this);
             });
-            
-            input.addEventListener('input', function() {
+
+            input.addEventListener('input', function () {
                 if (this.classList.contains('error')) {
                     validateField(this);
                 }
@@ -232,13 +236,13 @@ function setupFormValidation() {
 function validateForm(form) {
     let isValid = true;
     const inputs = form.querySelectorAll('.form-control[required]');
-    
+
     inputs.forEach(input => {
         if (!validateField(input)) {
             isValid = false;
         }
     });
-    
+
     return isValid;
 }
 
@@ -247,14 +251,14 @@ function validateField(field) {
     const fieldType = field.type;
     let isValid = true;
     let errorMessage = '';
-    
+
     // Remove previous error
     field.classList.remove('error');
     const existingError = field.parentNode.querySelector('.error-message');
     if (existingError) {
         existingError.remove();
     }
-    
+
     // Validation rules
     if (field.hasAttribute('required') && !value) {
         isValid = false;
@@ -269,7 +273,7 @@ function validateField(field) {
         isValid = false;
         errorMessage = `Minimum ${field.getAttribute('minlength')} characters required`;
     }
-    
+
     // Show error
     if (!isValid) {
         field.classList.add('error');
@@ -281,7 +285,7 @@ function validateField(field) {
         errorDiv.style.marginTop = '0.25rem';
         field.parentNode.appendChild(errorDiv);
     }
-    
+
     return isValid;
 }
 
@@ -301,15 +305,15 @@ function submitForm(form) {
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
-    
+
     // Simulate form submission
     setTimeout(() => {
         // Show success message
         showNotification('Message sent successfully!', 'success');
-        
+
         // Reset form
         form.reset();
-        
+
         // Reset button
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
@@ -319,17 +323,17 @@ function submitForm(form) {
 // ===== SMOOTH SCROLLING =====
 function setupSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerHeight = header.offsetHeight;
                 const targetPosition = targetElement.offsetTop - headerHeight - 20;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -345,7 +349,7 @@ function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
-    
+
     // Style notification
     Object.assign(notification.style, {
         position: 'fixed',
@@ -360,14 +364,14 @@ function showNotification(message, type = 'info') {
         transform: 'translateX(400px)',
         transition: 'transform 0.3s ease'
     });
-    
+
     document.body.appendChild(notification);
-    
+
     // Show notification
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 100);
-    
+
     // Hide notification
     setTimeout(() => {
         notification.style.transform = 'translateX(400px)';
@@ -382,28 +386,28 @@ function setupAppointmentBooking() {
     const dateInput = document.getElementById('appointment-date');
     const timeSlots = document.querySelectorAll('.time-slot');
     const serviceSelect = document.getElementById('service-select');
-    
+
     // Set minimum date to today
     if (dateInput) {
         const today = new Date().toISOString().split('T')[0];
         dateInput.min = today;
-        
-        dateInput.addEventListener('change', function() {
+
+        dateInput.addEventListener('change', function () {
             loadAvailableTimeSlots(this.value);
         });
     }
-    
+
     // Time slot selection
     timeSlots.forEach(slot => {
-        slot.addEventListener('click', function() {
+        slot.addEventListener('click', function () {
             timeSlots.forEach(s => s.classList.remove('selected'));
             this.classList.add('selected');
         });
     });
-    
+
     // Service selection
     if (serviceSelect) {
-        serviceSelect.addEventListener('change', function() {
+        serviceSelect.addEventListener('change', function () {
             updatePricingDisplay(this.value);
         });
     }
@@ -413,7 +417,7 @@ function loadAvailableTimeSlots(date) {
     // Simulate loading available time slots
     const timeSlots = document.querySelectorAll('.time-slot');
     const availableSlots = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'];
-    
+
     timeSlots.forEach(slot => {
         const time = slot.textContent.trim();
         if (availableSlots.includes(time)) {
@@ -436,7 +440,7 @@ function updatePricingDisplay(serviceId) {
         'nail-art': 75,
         'acrylic': 85
     };
-    
+
     const priceDisplay = document.getElementById('price-display');
     if (priceDisplay && prices[serviceId]) {
         priceDisplay.textContent = `$${prices[serviceId]}`;
@@ -453,15 +457,15 @@ function setupDashboard() {
 
 function setupSidebarNavigation() {
     const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
-    
+
     sidebarLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             // Update active state
             sidebarLinks.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
-            
+
             // Load content (in real app, this would load from server)
             const page = this.getAttribute('data-page');
             loadDashboardPage(page);
@@ -471,10 +475,10 @@ function setupSidebarNavigation() {
 
 function loadDashboardPage(page) {
     const mainContent = document.querySelector('.dashboard-main');
-    
+
     // Show loading state
     mainContent.innerHTML = '<div class="spinner"></div>';
-    
+
     // Simulate page loading
     setTimeout(() => {
         // In real app, this would fetch content from server
@@ -485,7 +489,7 @@ function loadDashboardPage(page) {
 function setupDataCharts() {
     // Initialize charts for dashboard
     const chartElements = document.querySelectorAll('.chart-container');
-    
+
     chartElements.forEach(chart => {
         // Simple chart initialization (in real app, use Chart.js or similar)
         chart.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
@@ -501,16 +505,16 @@ function setupDataCharts() {
 
 function setupUserManagement() {
     const userTable = document.querySelector('.users-table');
-    
+
     if (userTable) {
         // Add row hover effects
         const rows = userTable.querySelectorAll('tbody tr');
         rows.forEach(row => {
-            row.addEventListener('mouseenter', function() {
+            row.addEventListener('mouseenter', function () {
                 this.style.backgroundColor = '#f8f9fa';
             });
-            
-            row.addEventListener('mouseleave', function() {
+
+            row.addEventListener('mouseleave', function () {
                 this.style.backgroundColor = '';
             });
         });
@@ -519,12 +523,12 @@ function setupUserManagement() {
 
 function setupAppointmentManagement() {
     const appointmentCards = document.querySelectorAll('.appointment-card');
-    
+
     appointmentCards.forEach(card => {
         const statusSelect = card.querySelector('.status-select');
-        
+
         if (statusSelect) {
-            statusSelect.addEventListener('change', function() {
+            statusSelect.addEventListener('change', function () {
                 updateAppointmentStatus(card, this.value);
             });
         }
@@ -533,11 +537,11 @@ function setupAppointmentManagement() {
 
 function updateAppointmentStatus(card, status) {
     const statusBadge = card.querySelector('.status-badge');
-    
+
     // Update badge styling based on status
     statusBadge.className = `status-badge status-${status}`;
-    
-    switch(status) {
+
+    switch (status) {
         case 'confirmed':
             statusBadge.style.background = '#27ae60';
             break;
@@ -550,7 +554,7 @@ function updateAppointmentStatus(card, status) {
         default:
             statusBadge.style.background = '#95a5a6';
     }
-    
+
     showNotification('Appointment status updated', 'success');
 }
 
@@ -569,7 +573,7 @@ function debounce(func, wait) {
 
 function throttle(func, limit) {
     let inThrottle;
-    return function() {
+    return function () {
         const args = arguments;
         const context = this;
         if (!inThrottle) {
@@ -578,6 +582,33 @@ function throttle(func, limit) {
             setTimeout(() => inThrottle = false, limit);
         }
     };
+}
+
+// ===== SCROLL UP BUTTON =====
+function setupScrollUpButton() {
+    // Create button element
+    const scrollBtn = document.createElement('button');
+    scrollBtn.className = 'scroll-up-btn';
+    scrollBtn.setAttribute('aria-label', 'Scroll to top');
+    scrollBtn.innerHTML = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>';
+    document.body.appendChild(scrollBtn);
+
+    // Show/hide button on scroll
+    window.addEventListener('scroll', throttle(function () {
+        if (window.scrollY > 300) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
+        }
+    }, 100));
+
+    // Scroll to top on click
+    scrollBtn.addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
 
 // Export functions for global use

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.svg">
 </head>
 
 <body class="auth-page">
@@ -56,6 +56,11 @@
 
                 <!-- Mobile Login/Register Actions -->
                 <div class="mobile-nav-actions">
+                    <button class="theme-toggle" aria-label="Toggle dark mode" style="margin: 0 auto 1.5rem; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"></path>
+                        </svg>
+                    </button>
                     <button class="theme-toggle" aria-label="Toggle dark mode" style="margin: 0 auto 1rem;">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
@@ -88,11 +93,22 @@
 
     <!-- Register Section -->
     <section class="auth-container">
-        <div class="auth-form">
-            <div style="text-align: center; margin-bottom: 1.5rem;">
-                <div
-                    style="width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; color: white; font-size: 1.5rem;">
-                    ✨</div>
+        <div class="auth-form" style="max-width: 550px;">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 1.5rem;">
+                    <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"
+                        style="width: 50px; height: 50px;">
+                        <defs>
+                            <linearGradient id="logoGradientReg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#d4a574;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#b8935f;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="20" cy="20" r="18" fill="url(#logoGradientReg)" />
+                        <path d="M20 8 L24 16 L32 16 L26 22 L28 30 L20 26 L12 30 L14 22 L8 16 L16 16 Z" fill="white" />
+                    </svg>
+                    <span style="font-size: 1.6rem;">Luxe Nail Studio</span>
+                </a>
                 <h2 style="margin-bottom: 0.5rem; font-size: 1.8rem;">Join Our Community</h2>
                 <p style="color: var(--text-secondary); font-size: 0.9rem;">Create your account for exclusive benefits
                 </p>
@@ -261,3 +277,4 @@
 </body>
 
 </html>
+
