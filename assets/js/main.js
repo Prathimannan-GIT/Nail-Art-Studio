@@ -3,7 +3,7 @@
 // ===== DOM ELEMENTS =====
 const header = document.querySelector('.header');
 const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
+const navCenter = document.querySelector('.nav-center');
 const navLinks = document.querySelectorAll('.nav-link');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
@@ -24,6 +24,86 @@ function initializeApp() {
     setupFormValidation();
     setupSmoothScrolling();
     setupScrollUpButton();
+    setupTabletFixes(); // Added fixes for tablet/mobile
+}
+
+// ===== TABLET & MOBILE FIXES =====
+function setupTabletFixes() {
+    // 1. Inject CSS for Logo Visibility on Tablet and Mobile Dark Mode Toggle
+    const style = document.createElement('style');
+    style.textContent = `
+        @media (max-width: 991px) {
+            .logo { z-index: 1002; position: relative; }
+            .logo span, .logo-icon { 
+                z-index: 1002; 
+                position: relative; 
+                display: inline-block !important; 
+                opacity: 1 !important; 
+                visibility: visible !important; 
+            }
+            .mobile-header-toggle { display: flex !important; margin-left: auto; }
+        }
+        @media (min-width: 992px) {
+            .mobile-header-toggle { display: none !important; }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // 2. Inject Mobile Dark Mode Toggle if missing
+    setupMobileDarkModeToggle();
+
+    // Listen for resize to ensure toggle is present/handled
+    window.addEventListener('resize', debounce(function () {
+        setupMobileDarkModeToggle();
+    }, 250));
+}
+
+function setupMobileDarkModeToggle() {
+    // Only proceed if we are on tablet/mobile (or checking for existence effectively)
+    const headerContent = document.querySelector('.header-content');
+    const menuToggleBtn = document.querySelector('.menu-toggle');
+
+    // Check if we need to insert a toggle and it doesn't exist yet
+    if (headerContent && menuToggleBtn && !document.querySelector('.mobile-header-toggle')) {
+        const btn = document.createElement('button');
+        btn.className = 'theme-toggle mobile-header-toggle';
+        btn.setAttribute('aria-label', 'Toggle dark mode (Mobile)');
+        // Styling matches other toggles but visible
+        btn.style.marginRight = '10px';
+        btn.style.marginLeft = 'auto';
+        btn.style.padding = '8px';
+        btn.style.background = 'none';
+        btn.style.border = '2px solid var(--primary-color)';
+        btn.style.borderRadius = '50px';
+        btn.style.cursor = 'pointer';
+        btn.style.alignItems = 'center';
+        btn.style.justifyContent = 'center';
+        btn.style.width = '44px';
+        btn.style.height = '44px';
+        btn.style.zIndex = '1002';
+
+        // SVG Icon (same as others)
+        btn.innerHTML = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: var(--primary-color);"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>';
+
+        // Insert before menu toggle
+        headerContent.insertBefore(btn, menuToggleBtn);
+
+        // Add event listener
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Update all toggles
+            document.querySelectorAll('.theme-toggle').forEach(t => updateThemeToggle(t, newTheme));
+        });
+
+        // Update initial state
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        updateThemeToggle(btn, currentTheme);
+    }
 }
 
 // ===== DARK MODE =====
@@ -47,7 +127,7 @@ function setupDarkMode() {
             localStorage.setItem('theme', newTheme);
 
             // Update all toggle buttons
-            themeToggles.forEach(t => updateThemeToggle(t, newTheme));
+            document.querySelectorAll('.theme-toggle').forEach(t => updateThemeToggle(t, newTheme));
 
             // Update header shadow
             updateHeaderShadow();
@@ -62,6 +142,12 @@ function updateThemeToggle(toggle, theme) {
             svg.innerHTML = theme === 'dark' ?
                 '<circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/>' :
                 '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>';
+
+            // Also update color logic for the newly created button which has inline styles
+            if (toggle.classList.contains('mobile-header-toggle')) {
+                svg.style.fill = theme === 'dark' ? 'white' : 'var(--primary-color)';
+                svg.style.color = theme === 'dark' ? 'white' : 'var(--primary-color)';
+            }
         }
     }
 }
@@ -78,8 +164,6 @@ function updateHeaderShadow() {
         }
     }
 }
-
-/* Remove updateHeaderBackground as it is replaced by CSS variables and updateHeaderShadow */
 
 // ===== HEADER FUNCTIONALITY =====
 function setupHeader() {
@@ -98,7 +182,9 @@ function setupMobileMenu() {
     const navCenter = document.querySelector('.nav-center');
 
     if (menuToggle && navCenter) {
-        menuToggle.addEventListener('click', function (e) {
+        // Clone and replace to remove listeners (prevent duplicates) if re-running - actually just add listener
+        // But better to ensure we don't double add
+        menuToggle.onclick = function (e) {
             e.stopPropagation();
             navCenter.classList.toggle('mobile-active');
             menuToggle.classList.toggle('active');
@@ -109,16 +195,16 @@ function setupMobileMenu() {
             } else {
                 document.body.style.overflow = '';
             }
-        });
+        };
 
         // Close menu when clicking outside
-        document.addEventListener('click', function (e) {
+        document.onclick = function (e) {
             if (!header.contains(e.target)) {
                 navCenter.classList.remove('mobile-active');
                 menuToggle.classList.remove('active');
                 document.body.style.overflow = '';
             }
-        });
+        };
 
         // Close menu when clicking on nav links (mobile)
         const navLinks = navCenter.querySelectorAll('.nav-link');
@@ -376,7 +462,9 @@ function showNotification(message, type = 'info') {
     setTimeout(() => {
         notification.style.transform = 'translateX(400px)';
         setTimeout(() => {
-            document.body.removeChild(notification);
+            if (notification.parentNode) {
+                document.body.removeChild(notification);
+            }
         }, 300);
     }, 3000);
 }
@@ -477,13 +565,13 @@ function loadDashboardPage(page) {
     const mainContent = document.querySelector('.dashboard-main');
 
     // Show loading state
-    mainContent.innerHTML = '<div class="spinner"></div>';
-
-    // Simulate page loading
-    setTimeout(() => {
-        // In real app, this would fetch content from server
-        console.log(`Loading ${page} page`);
-    }, 500);
+    if (mainContent) {
+        mainContent.innerHTML = '<div class="spinner"></div>';
+        // Simulate page loading
+        setTimeout(() => {
+            console.log(`Loading ${page} page`);
+        }, 500);
+    }
 }
 
 function setupDataCharts() {
@@ -541,6 +629,7 @@ function updateAppointmentStatus(card, status) {
     // Update badge styling based on status
     statusBadge.className = `status-badge status-${status}`;
 
+    // Style updates
     switch (status) {
         case 'confirmed':
             statusBadge.style.background = '#27ae60';
@@ -586,12 +675,24 @@ function throttle(func, limit) {
 
 // ===== SCROLL UP BUTTON =====
 function setupScrollUpButton() {
-    // Create button element
-    const scrollBtn = document.createElement('button');
-    scrollBtn.className = 'scroll-up-btn';
-    scrollBtn.setAttribute('aria-label', 'Scroll to top');
-    scrollBtn.innerHTML = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>';
-    document.body.appendChild(scrollBtn);
+    // Create button element if not exists
+    if (!document.querySelector('.scroll-up-btn')) {
+        const scrollBtn = document.createElement('button');
+        scrollBtn.className = 'scroll-up-btn';
+        scrollBtn.setAttribute('aria-label', 'Scroll to top');
+        scrollBtn.innerHTML = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>';
+        document.body.appendChild(scrollBtn);
+
+        // Scroll to top on click
+        scrollBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    const scrollBtn = document.querySelector('.scroll-up-btn');
 
     // Show/hide button on scroll
     window.addEventListener('scroll', throttle(function () {
@@ -601,14 +702,6 @@ function setupScrollUpButton() {
             scrollBtn.classList.remove('visible');
         }
     }, 100));
-
-    // Scroll to top on click
-    scrollBtn.addEventListener('click', function () {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
 }
 
 // Export functions for global use

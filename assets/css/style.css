@@ -64,7 +64,7 @@ body {
     color: var(--text-primary);
     background-color: var(--bg-primary);
     overflow-x: hidden;
-    overflow-y: auto;
+    /* Removed overflow-y: auto to allow window scroll events and fix sticky positioning */
 }
 
 /* ===== TYPOGRAPHY ===== */
@@ -291,6 +291,13 @@ p {
     box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
 }
 
+[data-theme="dark"] .btn-primary {
+    color: white !important;
+    background: var(--gradient-primary) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 15px rgba(212, 165, 116, 0.2);
+}
+
 /* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
@@ -351,15 +358,19 @@ p {
     width: 20px;
     height: 20px;
     fill: var(--primary-color);
+    color: var(--primary-color);
+    /* Added for strokes */
     transition: var(--transition);
 }
 
 .theme-toggle:hover svg {
-    fill: white;
+    fill: white !important;
+    color: white !important;
 }
 
 [data-theme="dark"] .theme-toggle svg {
-    fill: var(--primary-color);
+    fill: white;
+    color: white;
 }
 
 [data-theme="dark"] .theme-toggle:hover svg {
@@ -381,7 +392,8 @@ p {
     justify-content: center;
     cursor: pointer;
     box-shadow: var(--shadow-hover);
-    z-index: 999;
+    z-index: 2000;
+    /* Increased z-index */
     opacity: 0;
     visibility: hidden;
     transition: var(--transition);
@@ -1365,35 +1377,33 @@ textarea.form-control {
     background: linear-gradient(135deg, #2d2d2d, #3a3a3a);
 }
 
+/* Allow scrolling on portal page */
+.portal-page {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+    padding-bottom: 2rem;
+}
+
 .auth-form {
     background: var(--bg-primary);
-    padding: 1.5rem 2rem;
+    padding: 1.25rem 1.75rem;
+    /* Reduced padding nudge */
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-hover);
     width: 100%;
-    max-width: 500px;
-    /* Slightly wider for 2-column rows */
-    max-height: 100%;
+    max-width: 480px;
+    /* Slimmer */
+    max-height: 90vh;
+    /* Ensure it stays within screen */
     overflow-y: auto;
-    /* Fallback for very small screens */
     scrollbar-width: none;
-    /* Hide scrollbar for Chrome/Safari/Firefox */
-}
-
-.auth-form::-webkit-scrollbar {
-    display: none;
-    /* Hide scrollbar for Chrome/Safari */
-}
-
-.auth-form h2 {
-    text-align: center;
-    color: var(--text-primary);
-    margin-bottom: 2rem;
 }
 
 .auth-form .btn {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+    /* Tighter spacing */
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
 }
@@ -1611,6 +1621,21 @@ textarea.form-control {
         height: 70px;
     }
 
+    .logo {
+        z-index: 1002;
+        position: relative;
+        display: flex !important;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .logo span,
+    .logo-icon {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
     .menu-toggle {
         display: flex;
     }
@@ -1649,6 +1674,8 @@ textarea.form-control {
         width: 100%;
         padding: 1rem;
         border-bottom: 1px solid var(--border-color);
+        color: var(--text-primary) !important;
+        /* Force visibility in dark mode */
     }
 
     .nav-link.active::after {
@@ -1681,7 +1708,8 @@ textarea.form-control {
     }
 
     .mobile-nav-actions .theme-toggle {
-        margin: 0 auto 1.5rem;
+        display: none !important;
+        /* Hide duplicate in menu as it is now in header */
     }
 
     /* Hero adjustments */
@@ -1712,11 +1740,18 @@ textarea.form-control {
 
     .logo span {
         font-size: 1.1rem;
+        display: inline-block !important;
+        /* Ensure visibility */
+        color: var(--text-primary);
+        z-index: 1002;
+        position: relative;
     }
 
     .logo-icon {
         width: 32px;
         height: 32px;
+        z-index: 1002;
+        position: relative;
     }
 
     .hero-content h1 {

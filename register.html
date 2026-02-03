@@ -56,18 +56,15 @@
 
                 <!-- Mobile Login/Register Actions -->
                 <div class="mobile-nav-actions">
-                    <button class="theme-toggle" aria-label="Toggle dark mode" style="margin: 0 auto 1.5rem; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
+                    <button class="theme-toggle" aria-label="Toggle dark mode"
+                        style="margin: 0 auto 1.5rem; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"></path>
                         </svg>
                     </button>
-                    <button class="theme-toggle" aria-label="Toggle dark mode" style="margin: 0 auto 1rem;">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
-                        </svg>
-                    </button>
-                    <a href="login.html" class="btn btn-outline">Login</a>
-                    <a href="register.html" class="btn btn-primary">Register</a>
+                    <a href="login.html" class="btn btn-outline" style="width: 100%; text-align: center;">Login</a>
+                    <a href="register.html" class="btn btn-primary"
+                        style="width: 100%; text-align: center;">Register</a>
                 </div>
             </nav>
 
@@ -94,10 +91,10 @@
     <!-- Register Section -->
     <section class="auth-container">
         <div class="auth-form" style="max-width: 550px;">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 1.5rem;">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 1rem;">
                     <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"
-                        style="width: 50px; height: 50px;">
+                        style="width: 44px; height: 44px;">
                         <defs>
                             <linearGradient id="logoGradientReg" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" style="stop-color:#d4a574;stop-opacity:1" />
@@ -107,61 +104,61 @@
                         <circle cx="20" cy="20" r="18" fill="url(#logoGradientReg)" />
                         <path d="M20 8 L24 16 L32 16 L26 22 L28 30 L20 26 L12 30 L14 22 L8 16 L16 16 Z" fill="white" />
                     </svg>
-                    <span style="font-size: 1.6rem;">Luxe Nail Studio</span>
+                    <span style="font-size: 1.4rem;">Luxe Nail Studio</span>
                 </a>
-                <h2 style="margin-bottom: 0.5rem; font-size: 1.8rem;">Join Our Community</h2>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Create your account for exclusive benefits
-                </p>
+                <h2 style="margin-bottom: 0.25rem; font-size: 1.6rem;">Join Us</h2>
+                <p style="color: var(--text-secondary); font-size: 0.85rem;">Create your account</p>
             </div>
 
             <form id="register-form">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.5rem;">
                     <div class="form-group" style="margin-bottom: 0.5rem;">
-                        <label for="firstName">First Name</label>
+                        <label for="firstName" style="font-size: 0.8rem;">First Name</label>
                         <input type="text" id="firstName" name="firstName" class="form-control" required
-                            placeholder="First name">
+                            placeholder="First name" style="padding: 0.6rem;">
                     </div>
                     <div class="form-group" style="margin-bottom: 0.5rem;">
-                        <label for="lastName">Last Name</label>
+                        <label for="lastName" style="font-size: 0.8rem;">Last Name</label>
                         <input type="text" id="lastName" name="lastName" class="form-control" required
-                            placeholder="Last name">
+                            placeholder="Last name" style="padding: 0.6rem;">
                     </div>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.5rem;">
                     <div class="form-group" style="margin-bottom: 0.5rem;">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-control" required
-                            placeholder="Email address">
+                        <label for="email" style="font-size: 0.8rem;">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required placeholder="Email"
+                            style="padding: 0.6rem;">
                     </div>
                     <div class="form-group" style="margin-bottom: 0.5rem;">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" class="form-control" required
-                            placeholder="Phone number">
+                        <label for="phone" style="font-size: 0.8rem;">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" required placeholder="Phone"
+                            style="padding: 0.6rem;">
                     </div>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.5rem;">
                     <div class="form-group" style="margin-bottom: 0.5rem;">
-                        <label for="password">Password</label>
+                        <label for="password" style="font-size: 0.8rem;">Password</label>
                         <input type="password" id="password" name="password" class="form-control" required
-                            placeholder="Password" minlength="8">
+                            placeholder="Password" minlength="8" style="padding: 0.6rem;">
                     </div>
                     <div class="form-group" style="margin-bottom: 0.5rem;">
-                        <label for="confirmPassword">Confirm Password</label>
+                        <label for="confirmPassword" style="font-size: 0.8rem;">Confirm</label>
                         <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required
-                            placeholder="Confirm">
+                            placeholder="Confirm" style="padding: 0.6rem;">
                     </div>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.8rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
                     <div class="form-group" style="margin-bottom: 0;">
-                        <label for="birthdate">Date of Birth</label>
-                        <input type="date" id="birthdate" name="birthdate" class="form-control" required>
+                        <label for="birthdate" style="font-size: 0.8rem;">Date of Birth</label>
+                        <input type="date" id="birthdate" name="birthdate" class="form-control" required
+                            style="padding: 0.6rem;">
                     </div>
                     <div class="form-group" style="margin-bottom: 0;">
-                        <label for="membership">Membership</label>
-                        <select id="membership" name="membership" class="form-control">
+                        <label for="membership" style="font-size: 0.8rem;">Membership</label>
+                        <select id="membership" name="membership" class="form-control" style="padding: 0.6rem;">
                             <option value="">Select type</option>
                             <option value="vip">VIP ($150/mo)</option>
                             <option value="student">Student ($80/mo)</option>
@@ -170,49 +167,40 @@
                     </div>
                 </div>
 
-                <div style="margin-bottom: 0.8rem; display: flex; flex-direction: column; gap: 0.3rem;">
+                <div style="margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
                     <label style="display: flex; align-items: flex-start; margin-bottom: 0;">
-                        <input type="checkbox" name="terms" required style="margin-right: 0.5rem; margin-top: 0.25rem;">
-                        <span style="color: var(--text-light); font-size: 0.8rem;">
-                            I agree to the <a href="terms-of-service.html"
-                                style="color: var(--primary-color);">Terms</a> and
-                            <a href="privacy-policy.html" style="color: var(--primary-color);">Privacy</a>
-                        </span>
-                    </label>
-                    <label style="display: flex; align-items: flex-start; margin-bottom: 0;">
-                        <input type="checkbox" name="newsletter" style="margin-right: 0.5rem; margin-top: 0.25rem;">
-                        <span style="color: var(--text-light); font-size: 0.8rem;">
-                            Send me exclusive offers via email
+                        <input type="checkbox" name="terms" required style="margin-right: 0.4rem; margin-top: 0.2rem;">
+                        <span style="color: var(--text-light); font-size: 0.75rem;">
+                            I agree to the <a href="#" style="color: var(--primary-color);">Terms</a>
                         </span>
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="margin-bottom: 0.5rem;">Create Account</button>
+                <button type="submit" class="btn btn-primary" style="margin-bottom: 0.5rem; padding: 0.7rem;">Create
+                    Account</button>
 
-                <div style="text-align: center; margin: 0.8rem 0;">
-                    <span style="color: var(--text-light); font-size: 0.8rem;">Or register with</span>
+                <div style="text-align: center; margin: 0.5rem 0;">
+                    <span style="color: var(--text-light); font-size: 0.75rem;">Or register with</span>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
                     <button type="button" class="btn btn-outline"
-                        style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem;">
+                        style="display: flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.6rem; font-size: 0.85rem;">
                         <span>f</span> Facebook
                     </button>
                     <button type="button" class="btn btn-outline"
-                        style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem;">
+                        style="display: flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.6rem; font-size: 0.85rem;">
                         <span>G</span> Google
                     </button>
                 </div>
             </form>
 
-            <div class="auth-links" style="margin-top: 0.8rem; font-size: 0.9rem;">
-                <p>Already have an account? <a href="login.html">Login here</a></p>
+            <div class="auth-links" style="margin-top: 0.75rem; font-size: 0.85rem;">
+                <p>Have an account? <a href="login.html">Login</a></p>
                 <p><a href="index.html">Back to Home</a></p>
             </div>
         </div>
     </section>
-
-
 
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
@@ -234,39 +222,17 @@
             // Show loading state
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Creating Account...';
+            submitBtn.textContent = 'Creating...';
             submitBtn.disabled = true;
 
-            // Simulate registration process
+            // Simulate registration
             setTimeout(() => {
-                // In a real application, this would make an API call
-                console.log('Registration data:', data);
-
-                // Show success message
-                window.NailArtStudio.showNotification('Account created successfully! Redirecting to login...', 'success');
-
-                // Redirect to login (in real app)
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 2000);
-
-                // Reset button
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
+                window.NailArtStudio.showNotification('Success! Redirecting...', 'success');
+                setTimeout(() => { window.location.href = 'login.html'; }, 1500);
+            }, 1500);
         });
 
-        // Social registration buttons
-        document.querySelectorAll('button[type="button"]').forEach(btn => {
-            if (btn.textContent.includes('Facebook') || btn.textContent.includes('Google')) {
-                btn.addEventListener('click', function () {
-                    const provider = this.textContent.includes('Facebook') ? 'Facebook' : 'Google';
-                    window.NailArtStudio.showNotification(`${provider} registration would be implemented here`, 'info');
-                });
-            }
-        });
-
-        // Set max date for birthdate (must be 18+)
+        // Set max date for birthdate (18+)
         const birthdateInput = document.getElementById('birthdate');
         if (birthdateInput) {
             const today = new Date();
@@ -277,4 +243,3 @@
 </body>
 
 </html>
-
