@@ -1,0 +1,220 @@
+/* ===== PREMIUM APPOINTMENT BOOKING REDESIGN ===== */
+
+/* Booking Container */
+.booking-container {
+    max-width: 900px;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Step Cards */
+.booking-step-card {
+    background: var(--bg-primary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    padding: 2.5rem;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.booking-step-card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(212, 165, 116, 0.3);
+}
+
+[data-theme="dark"] .booking-step-card {
+    background: var(--bg-secondary);
+}
+
+/* Step Header */
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.step-number {
+    width: 36px;
+    height: 36px;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(212, 165, 116, 0.3);
+}
+
+.step-title {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* Service Cards Grid */
+.service-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-card-input {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    /* Ensure padding doesn't affect width */
+}
+
+.service-card-input:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+
+.service-card-input input[type="checkbox"] {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    accent-color: var(--primary-color);
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.service-name {
+    font-weight: 600;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.service-price {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Selected State for Services */
+.service-card-input:has(input:checked),
+.service-card-input.selected {
+    border-color: var(--primary-color);
+    background: rgba(212, 165, 116, 0.05);
+    /* Subtle tint */
+    box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+/* Form Inputs Redesign */
+.form-floating {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.styled-input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.styled-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.15);
+}
+
+.fancy-label {
+    position: absolute;
+    top: -0.6rem;
+    left: 1rem;
+    background: var(--bg-primary);
+    padding: 0 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 2;
+}
+
+[data-theme="dark"] .styled-input {
+    background: var(--bg-tertiary);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .fancy-label {
+    background: var(--bg-secondary);
+    /* Matches card bg */
+    color: var(--text-light);
+}
+
+/* Booking Summary Card */
+.booking-summary-card {
+    background: var(--gradient-soft);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.summary-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+}
+
+.summary-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.submit-area {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.btn-book {
+    padding: 1rem 4rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 20px rgba(212, 165, 116, 0.3);
+}
+
+.btn-book:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(212, 165, 116, 0.4);
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .booking-step-card {
+        padding: 1.5rem;
+    }
+
+    .service-selection-grid {
+        grid-template-columns: 1fr;
+    }
+}

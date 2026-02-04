@@ -29,7 +29,7 @@ function initializeApp() {
 
 // ===== TABLET & MOBILE FIXES =====
 function setupTabletFixes() {
-    // 1. Inject CSS for Logo Visibility on Tablet and Mobile Dark Mode Toggle
+    // 1. Inject CSS for Logo Visibility on Tablet and Mobile
     const style = document.createElement('style');
     style.textContent = `
         @media (max-width: 991px) {
@@ -41,70 +41,11 @@ function setupTabletFixes() {
                 opacity: 1 !important; 
                 visibility: visible !important; 
             }
-            .mobile-header-toggle { display: flex !important; margin-left: auto; }
-        }
-        @media (min-width: 992px) {
-            .mobile-header-toggle { display: none !important; }
         }
     `;
     document.head.appendChild(style);
-
-    // 2. Inject Mobile Dark Mode Toggle if missing
-    setupMobileDarkModeToggle();
-
-    // Listen for resize to ensure toggle is present/handled
-    window.addEventListener('resize', debounce(function () {
-        setupMobileDarkModeToggle();
-    }, 250));
 }
 
-function setupMobileDarkModeToggle() {
-    // Only proceed if we are on tablet/mobile (or checking for existence effectively)
-    const headerContent = document.querySelector('.header-content');
-    const menuToggleBtn = document.querySelector('.menu-toggle');
-
-    // Check if we need to insert a toggle and it doesn't exist yet
-    if (headerContent && menuToggleBtn && !document.querySelector('.mobile-header-toggle')) {
-        const btn = document.createElement('button');
-        btn.className = 'theme-toggle mobile-header-toggle';
-        btn.setAttribute('aria-label', 'Toggle dark mode (Mobile)');
-        // Styling matches other toggles but visible
-        btn.style.marginRight = '10px';
-        btn.style.marginLeft = 'auto';
-        btn.style.padding = '8px';
-        btn.style.background = 'none';
-        btn.style.border = '2px solid var(--primary-color)';
-        btn.style.borderRadius = '50px';
-        btn.style.cursor = 'pointer';
-        btn.style.alignItems = 'center';
-        btn.style.justifyContent = 'center';
-        btn.style.width = '44px';
-        btn.style.height = '44px';
-        btn.style.zIndex = '1002';
-
-        // SVG Icon (same as others)
-        btn.innerHTML = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; fill: var(--primary-color);"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>';
-
-        // Insert before menu toggle
-        headerContent.insertBefore(btn, menuToggleBtn);
-
-        // Add event listener
-        btn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-
-            // Update all toggles
-            document.querySelectorAll('.theme-toggle').forEach(t => updateThemeToggle(t, newTheme));
-        });
-
-        // Update initial state
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        updateThemeToggle(btn, currentTheme);
-    }
-}
 
 // ===== DARK MODE =====
 function setupDarkMode() {
