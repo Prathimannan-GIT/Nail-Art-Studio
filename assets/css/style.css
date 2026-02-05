@@ -656,6 +656,9 @@ p {
     position: relative;
     overflow: hidden;
     border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 [data-theme="dark"] .service-card {
@@ -713,6 +716,12 @@ p {
     padding: 0;
     margin: 1.5rem 0;
     text-align: center;
+}
+
+/* Push button containers to bottom of service cards */
+.service-card > div[style*="margin-top: 1rem"] {
+    margin-top: auto !important;
+    padding-top: 1.5rem;
 }
 
 .service-card ul li {
