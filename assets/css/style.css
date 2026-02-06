@@ -2303,6 +2303,11 @@ input[type="date"] {
 
 }
 
+/* Dashboard form labels in dark mode */
+[data-theme="dark"] .dashboard label {
+    color: var(--text-primary) !important;
+}
+
 /* Selected State for Services */
 .service-card-input:has(input:checked),
 .service-card-input.selected {
