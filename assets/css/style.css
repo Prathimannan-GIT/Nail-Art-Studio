@@ -176,10 +176,9 @@ p {
     align-items: center;
     gap: 12px;
     text-decoration: none;
-    color: var(--text-primary);
+    color: #b8935f;
     font-size: 1.5rem;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
+    font-family: inherit;
     transition: var(--transition);
     flex-shrink: 0;
     white-space: nowrap;
@@ -286,7 +285,7 @@ p {
     }
 
     .logo {
-        font-size: 1.35rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -305,7 +304,7 @@ p {
     }
 
     .logo span {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -1160,7 +1159,9 @@ textarea.form-control {
 }
 
 .footer-logo h3 {
-    color: var(--text-on-dark);
+    color: #b8935f;
+    font-weight: normal;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .footer-section h3 {
@@ -1870,7 +1871,7 @@ textarea.form-control {
     }
 
     .logo {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 
     .nav-menu {
@@ -2015,10 +2016,10 @@ textarea.form-control {
     }
 
     .logo span {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
         display: inline-block !important;
         /* Ensure visibility */
-        color: var(--text-primary);
+        color: #b8935f;
         z-index: 1002;
         position: relative;
     }
