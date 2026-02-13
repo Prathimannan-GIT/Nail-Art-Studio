@@ -718,7 +718,7 @@ p {
 }
 
 /* Push button containers to bottom of service cards */
-.service-card > div[style*="margin-top: 1rem"] {
+.service-card>div[style*="margin-top: 1rem"] {
     margin-top: auto !important;
     padding-top: 1.5rem;
 }
@@ -2430,4 +2430,62 @@ input[type="date"] {
     }
 
 
+}
+
+/* Social Login Buttons */
+.social-buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem !important;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: var(--transition);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.social-btn:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.social-btn svg {
+    flex-shrink: 0;
+}
+
+/* Tab/Mobile view button length reduction */
+@media (max-width: 1023px) {
+    .social-buttons-container {
+        grid-template-columns: 1fr 1fr !important;
+        max-width: 350px;
+        margin: 1rem auto 0;
+        gap: 0.75rem;
+    }
+
+    .social-btn {
+        padding: 0.6rem 0.75rem !important;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-buttons-container {
+        grid-template-columns: 1fr !important;
+        max-width: 100%;
+    }
 }
