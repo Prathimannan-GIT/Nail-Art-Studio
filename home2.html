@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxe Nail Art Studio - Alternative Landing</title>
+    <title>Nail Studio - Home 2 - Elite Experience</title>
     <meta name="description"
-        content="Discover artistic nail designs and premium beauty treatments. Book your transformation today at Luxe Nail Studio.">
+        content="Experience the next level of nail artistry at Luxe Nail Studio. High-end designs, medical-grade hygiene, and unparalleled luxury.">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +23,119 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.svg">
+
+    <style>
+        /* Custom Styles for Home 2 to ensure premium feel and dark/light visibility */
+        .hero-2 {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-2-content {
+            z-index: 2;
+        }
+
+        .hero-2-bg-text {
+            position: absolute;
+            font-size: 20vw;
+            font-weight: 900;
+            color: var(--primary-color);
+            opacity: 0.03;
+            white-space: nowrap;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .philosophy-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 3rem;
+            border-radius: 20px;
+            transition: var(--transition);
+            height: 100%;
+            text-align: center;
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .experience-step {
+            position: relative;
+            padding: 2rem;
+            border-top: 2px solid var(--primary-color);
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .experience-step::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: -11px;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 4px solid var(--bg-primary);
+        }
+
+        .hygiene-box {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem;
+            border-radius: 30px;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .membership-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .membership-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .hygiene-box {
+                padding: 2rem;
+            }
+
+            .w-100-mobile {
+                width: 100% !important;
+                max-width: 300px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -30,12 +146,12 @@
             <a href="index.html" class="logo">
                 <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="logoGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style="stop-color:#d4a574;stop-opacity:1" />
                             <stop offset="100%" style="stop-color:#b8935f;stop-opacity:1" />
                         </linearGradient>
                     </defs>
-                    <circle cx="20" cy="20" r="18" fill="url(#logoGradient)" />
+                    <circle cx="20" cy="20" r="18" fill="url(#logoGradient2)" />
                     <path d="M20 8 L24 16 L32 16 L26 22 L28 30 L20 26 L12 30 L14 22 L8 16 L16 16 Z" fill="white" />
                 </svg>
                 <span>Nail Studio</span>
@@ -45,7 +161,9 @@
             <nav class="nav-center">
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about.html" class="nav-link">About</a></li><li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="home2.html" class="nav-link active">Home 2</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
                     <li><a href="pricing.html" class="nav-link">Pricing</a></li>
                     <li><a href="appointments.html" class="nav-link">Appointments</a></li>
                     <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
@@ -60,6 +178,7 @@
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"></path>
                         </svg>
                     </button>
+
                     <a href="login.html" class="btn btn-outline">Login</a>
                     <a href="register.html" class="btn btn-primary">Register</a>
                 </div>
@@ -85,227 +204,154 @@
         </div>
     </header>
 
-    <!-- Hero Section - Alternative Layout -->
-    <section class="section section-hero hero-alt" style="background: var(--gradient-primary); color: white;">
+    <!-- SECTION 1: IMPACT HERO -->
+    <section class="hero-2">
+        <div class="hero-2-bg-text">ARTISTRY</div>
         <div class="container">
-            <div class="hero" style="grid-template-columns: 1fr; text-align: center;">
-                <div class="hero-content">
-                    <h1 style="color: white; font-size: 3.5rem;">Artistry in Every Detail</h1>
-                    <p class="subtitle" style="color: rgba(255,255,255,0.9); font-style: italic;">Premium Nail Art &
-                        Beauty Studio</p>
-                    <p
-                        style="color: rgba(255,255,255,0.8); font-size: 1.2rem; max-width: 800px; margin: 0 auto 2.5rem;">
-                        Step into a world where creativity knows no bounds. Our expert nail artists transform your
-                        vision into stunning reality with precision, passion, and the finest products available.</p>
-                    <div class="hero-buttons" style="justify-content: center;">
-                        <a href="appointments.html" class="btn btn-primary"
-                            style="background: white; color: var(--secondary-color); border: none;">Book Your
-                            Session</a>
-                        <a href="gallery.html" class="btn btn-outline"
-                            style="border-color: white; color: white;">Explore Designs</a>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 hero-2-content text-center">
+                    <h6 class="text-uppercase tracking-widest mb-3"
+                        style="color: var(--primary-color); letter-spacing: 4px; font-weight: 700;">The New Standard
+                    </h6>
+                    <h1 class="display-2 mb-4">Elevating Nails to <br><span style="color: var(--primary-color);">Fine
+                            Art</span></h1>
+                    <p class="lead mb-5 mx-auto" style="max-width: 800px;">Experience a sanctuary where high-fashion
+                        aesthetics
+                        meet scientific precision. We don't just paint; we curate your personal expression.</p>
+                    <div class="d-flex flex-column flex-md-row gap-3 justify-content-center align-items-center">
+                        <a href="appointments.html" class="btn btn-primary btn-lg px-5 py-3 w-100-mobile"
+                            style="min-width: 250px;">Reserve an Artist</a>
+                        <a href="gallery.html" class="btn btn-outline btn-lg px-5 py-3 w-100-mobile"
+                            style="min-width: 250px;">View Collections</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Gallery Section -->
-    <section class="section section-gallery" style="background: var(--bg-secondary);">
+    <!-- SECTION 2: PHILOSOPHY -->
+    <section class="section">
         <div class="container">
-            <div class="gallery-header">
-                <h2>Signature Collections</h2>
-                <p>Curated designs that define elegance and creativity</p>
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Our Signature Pillars</h2>
+                <p class="text-muted">The internal culture that defines every stroke of our brushes.</p>
             </div>
-
-            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
-                <div class="gallery-item" style="grid-row: span 2;">
-                    <!-- Replace this image path with your own image if not visible -->
-                    <img src="assets/images/gallery/featured-01.jpg" alt="Featured Nail Art Design"
-                        style="height: 100%;">
-                    <div class="gallery-overlay">
-                        <h4>Masterpiece Collection</h4>
-                        <p>Our most intricate designs</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="philosophy-card">
+                        <div class="fs-1 mb-4">💎</div>
+                        <h3>Unyielding Quality</h3>
+                        <p>We source exclusively from Parisian and Korean artisans, ensuring pigments that remain
+                            vibrant for weeks longer than industry standards.</p>
                     </div>
                 </div>
-
-                <div class="gallery-item">
-                    <!-- Replace this image path with your own image if not visible -->
-                    <img src="assets/images/gallery/featured-02.jpg" alt="Elegant Nail Design">
-                    <div class="gallery-overlay">
-                        <h4>Classic Elegance</h4>
-                        <p>Timeless beauty</p>
+                <div class="col-md-4">
+                    <div class="philosophy-card">
+                        <div class="fs-1 mb-4">🎨</div>
+                        <h3>Bespoke Artistry</h3>
+                        <p>No two sessions are identical. Our artists study your hand anatomy and personal style to
+                            create a look that is uniquely yours.</p>
                     </div>
                 </div>
-
-                <div class="gallery-item">
-                    <!-- Replace this image path with your own image if not visible -->
-                    <img src="assets/images/gallery/featured-03.jpg" alt="Modern Nail Art">
-                    <div class="gallery-overlay">
-                        <h4>Modern Chic</h4>
-                        <p>Contemporary styles</p>
+                <div class="col-md-4">
+                    <div class="philosophy-card">
+                        <div class="fs-1 mb-4">🌿</div>
+                        <h3>Holistic Care</h3>
+                        <p>Beauty should never compromise health. Our "Nail First" approach focuses on strengthening the
+                            natural nail bed beneath the art.</p>
                     </div>
-                </div>
-
-                <div class="gallery-item" style="grid-column: span 2;">
-                    <!-- Replace this image path with your own image if not visible -->
-                    <img src="assets/images/gallery/featured-04.jpg" alt="Seasonal Collection">
-                    <div class="gallery-overlay">
-                        <h4>Seasonal Specials</h4>
-                        <p>Limited edition designs</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center">
-                <a href="gallery.html" class="btn btn-primary">View Complete Gallery</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Showcase -->
-    <section class="section section-services">
-        <div class="container">
-            <div class="text-center">
-                <h2>Our Expertise</h2>
-                <p>Comprehensive nail care and artistic services</p>
-            </div>
-
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div
-                    style="background: var(--card-bg); padding: 2.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft); text-align: center; border: 1px solid var(--border-color);">
-                    <div
-                        style="width: 70px; height: 70px; background: var(--gradient-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--primary-color); font-size: 1.8rem;">
-                        🎨</div>
-                    <h3 style="color: var(--text-primary);">Custom Designs</h3>
-                    <p style="color: var(--text-secondary);">Personalized nail art created just for you</p>
-                </div>
-
-                <div
-                    style="background: var(--card-bg); padding: 2.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft); text-align: center; border: 1px solid var(--border-color);">
-                    <div
-                        style="width: 70px; height: 70px; background: var(--gradient-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--primary-color); font-size: 1.8rem;">
-                        💎</div>
-                    <h3 style="color: var(--text-primary);">Premium Materials</h3>
-                    <p style="color: var(--text-secondary);">Only the finest quality products used</p>
-                </div>
-
-                <div
-                    style="background: var(--card-bg); padding: 2.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow-soft); text-align: center; border: 1px solid var(--border-color);">
-                    <div
-                        style="width: 70px; height: 70px; background: var(--gradient-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--primary-color); font-size: 1.8rem;">
-                        👑</div>
-                    <h3 style="color: var(--text-primary);">Luxury Experience</h3>
-                    <p style="color: var(--text-secondary);">Pampering in our elegant studio</p>
-                </div>
-
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- About Preview -->
-    <section class="section section-about">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-                <div>
-                    <h2>Where Beauty Meets Art</h2>
-                    <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem;">Founded with a passion
-                        for creativity and excellence, Luxe Nail Studio has become the premier destination for those
-                        seeking extraordinary nail art and premium beauty services.</p>
-                    <p style="margin-bottom: 1.5rem;">Our team of skilled artists combines technical expertise with
-                        artistic vision to create stunning nail designs that reflect your unique personality and style.
-                    </p>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.75rem;">✓ Expert nail artists with years of experience</li>
-                        <li style="margin-bottom: 0.75rem;">✓ Premium, safe, and high-quality products</li>
-                        <li style="margin-bottom: 0.75rem;">✓ Custom designs tailored to your preferences</li>
-                        <li style="margin-bottom: 0.75rem;">✓ Relaxing and luxurious studio environment</li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <a href="about.html" class="btn btn-primary">Learn More About Us</a>
-                    </div>
-                </div>
-                <div
-                    style="border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-hover); background: var(--gradient-soft); min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                    <!-- Replace this image path with your own image if not visible -->
-                    <img src="assets/images/team/studio-interior.jpg" alt="Studio Interior"
-                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Preview -->
-    <section class="section section-pricing">
+    <!-- SECTION 3: THE JOURNEY -->
+    <section class="section" style="background: var(--bg-secondary);">
         <div class="container">
-            <div class="text-center">
-                <h2>Investment in Beauty</h2>
-                <p>Premium services at competitive prices</p>
+            <div class="text-center mb-5">
+                <h2 class="mb-4">The Studio Experience</h2>
+                <p class="mx-auto" style="max-width: 700px;">From the moment you step through our doors, your
+                    transformation begins. We've designed a
+                    sensory journey that calms the mind and excites the spirit.</p>
             </div>
-
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Classic</h3>
-                        <div class="pricing-price">$45<span>/session</span></div>
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-4">
+                    <div class="experience-step">
+                        <h4>Phase I: Consultation</h4>
+                        <p>Discuss your vision and hand health while sipping our signature rose-gold tea.</p>
                     </div>
-                    <ul class="pricing-features">
-                        <li>Classic manicure</li>
-                        <li>Cuticle care</li>
-                        <li>Nail shaping</li>
-                        <li>Premium polish</li>
-                        <li>15-minute hand massage</li>
-                    </ul>
-                    <a href="pricing.html" class="btn btn-outline">View Details</a>
                 </div>
-
-                <div class="pricing-card featured">
-                    <div class="pricing-header">
-                        <h3>Artist Choice</h3>
-                        <div class="pricing-price">$75<span>/session</span></div>
+                <div class="col-lg-4">
+                    <div class="experience-step">
+                        <h4>Phase II: Foundations</h4>
+                        <p>Medical-grade techniques ensure the perfect canvas without damaging the cuticle.</p>
                     </div>
-                    <ul class="pricing-features">
-                        <li>Custom nail art design</li>
-                        <li>Gel application</li>
-                        <li>3D embellishments</li>
-                        <li>Extended wear guarantee</li>
-                        <li>Complimentary touch-up kit</li>
-                    </ul>
-                    <a href="appointments.html" class="btn btn-primary">Book Now</a>
                 </div>
-
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>VIP Package</h3>
-                        <div class="pricing-price">$120<span>/session</span></div>
+                <div class="col-lg-4">
+                    <div class="experience-step">
+                        <h4>Phase III: The Reveal</h4>
+                        <p>Watch your vision come to life with multi-layered designs and a release massage.</p>
                     </div>
-                    <ul class="pricing-features">
-                        <li>Full nail art transformation</li>
-                        <li>Spa pedicure included</li>
-                        <li>Premium add-ons</li>
-                        <li>Priority booking</li>
-                        <li>Monthly maintenance plan</li>
-                    </ul>
-                    <a href="pricing.html" class="btn btn-outline">View Details</a>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <img src="assets/images/team/studio-interior.jpg" class="img-fluid rounded-4 shadow-sm"
+                    alt="Luxury Studio" style="max-height: 400px; width: 100%; max-width: 800px; object-fit: cover;">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: HYGIENE STANDARDS -->
+    <section class="section">
+        <div class="container">
+            <div class="hygiene-box text-center">
+                <h2 class="text-white mb-4">Hospital-Grade Safety</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-8">
+                        <p class="fs-5 mb-5 text-white-50">Your safety is our obsession. We employ the absolute highest
+                            standards of sterilization found in modern medical facilities.</p>
+                        <div class="row g-4">
+                            <div class="col-sm-4">
+                                <h2 class="text-white mb-1">100%</h2>
+                                <p class="text-white-50 small">Autoclave Sterilized</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <h2 class="text-white mb-1">Single</h2>
+                                <p class="text-white-50 small">Use Accoutrements</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <h2 class="text-white mb-1">Active</h2>
+                                <p class="text-white-50 small">Air Filtration</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact CTA -->
-    <section class="section section-contact">
+    <!-- SECTION 5: MEMBERSHIP -->
+    <section class="section" style="background: var(--bg-tertiary);">
         <div class="container">
-            <div
-                style="text-align: center; background: var(--gradient-primary); padding: 4rem 2rem; border-radius: var(--border-radius); color: white;">
-                <h2 style="color: white; margin-bottom: 1rem;">Ready for Your Transformation?</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: rgba(255,255,255,0.9);">Join our community of
-                    satisfied clients who trust us with their beauty needs</p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="appointments.html" class="btn" style="background: white; color: var(--primary-color);">Book
-                        Appointment</a>
-                    <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">Get in
-                        Touch</a>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="membership-card text-center">
+                        <div class="membership-badge">ELITE</div>
+                        <h2 class="mb-3">Join The Inner Circle</h2>
+                        <p class="mb-4 mx-auto" style="max-width: 700px;">Become a part of our exclusive community.
+                            Membership isn't just about discounts;
+                            it's about priority access to seasonal collections and VIP events.</p>
+                        <ul class="list-unstyled mb-5 d-inline-block text-start">
+                            <li class="mb-2">✨ <strong>Priority Booking:</strong> Skip the 2-week waitlist.</li>
+                            <li class="mb-2">✨ <strong>Birthday Art:</strong> Complimentary custom design on your month.
+                            </li>
+                            <li class="mb-2">✨ <strong>Secret Menu:</strong> Access to unreleased techniques and
+                                pigments.</li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="register.html" class="btn btn-primary px-5 py-3">Apply for Membership</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -321,12 +367,12 @@
                         <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"
                             style="width: 40px; height: 40px;">
                             <defs>
-                                <linearGradient id="footerLogoGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <linearGradient id="footerLogoGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
                                     <stop offset="0%" style="stop-color:#d4a574;stop-opacity:1" />
                                     <stop offset="100%" style="stop-color:#b8935f;stop-opacity:1" />
                                 </linearGradient>
                             </defs>
-                            <circle cx="20" cy="20" r="18" fill="url(#footerLogoGradient2)" />
+                            <circle cx="20" cy="20" r="18" fill="url(#footerLogoGradient3)" />
                             <path d="M20 8 L24 16 L32 16 L26 22 L28 30 L20 26 L12 30 L14 22 L8 16 L16 16 Z"
                                 fill="white" />
                         </svg>
@@ -334,28 +380,6 @@
                     </div>
                     <p>Where art meets beauty in perfect harmony. Experience premium nail care and artistic designs in
                         our luxurious studio environment.</p>
-                     <div class="social-icons">
-                        <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2"/>
-                            </svg>
-                        </a>
-                        <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" fill="#E4405F"/>
-                            </svg>
-                        </a>
-                        <a href="https://twitter.com" target="_blank" class="social-icon" aria-label="Twitter">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" fill="#1DA1F2"/>
-                            </svg>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="#0077B5"/>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
 
                 <div class="footer-section text-center">
@@ -366,17 +390,6 @@
                         <li><a href="gallery.html">Design Gallery</a></li>
                         <li><a href="pricing.html">Pricing</a></li>
                         <li><a href="appointments.html">Book Appointment</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section text-center">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="services.html">Classic Manicure</a></li>
-                        <li><a href="services.html">Nail Art Design</a></li>
-                        <li><a href="services.html">Gel Extensions</a></li>
-                        <li><a href="services.html">Pedicure Services</a></li>
-                        <li><a href="services.html">Nail Treatments</a></li>
                     </ul>
                 </div>
 
@@ -401,7 +414,7 @@
 
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-
